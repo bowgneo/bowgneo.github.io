@@ -2,9 +2,11 @@
 
 一个使用原生 HTML 和 CSS 的个人主页，支持手机和桌面。无需安装依赖，无需构建。
 
-**当前状态：本地审核稿，尚未创建远端仓库，也未发布到 GitHub Pages。**
+**当前状态：页面已获用户确认，公开仓库已创建，正在配置 GitHub Pages 并部署。**
 
-计划地址：<https://bowgneo.github.io/>。此地址在审核通过并部署后才是本站的访问地址。
+网站地址：<https://bowgneo.github.io/>（部署验收中）。
+
+源码仓库：<https://github.com/bowgneo/bowgneo.github.io>。
 
 ## 预览
 
@@ -28,4 +30,4 @@ python3 -m http.server 8847 --bind 127.0.0.1
 | `.nojekyll` | 告诉 GitHub Pages 直接发布静态文件 |
 | `GUIDE.zh-CN.md` | 实施记录和完整的 GitHub 网页操作教程 |
 
-完整步骤见 [GUIDE.zh-CN.md](GUIDE.zh-CN.md)。审核通过后再执行其中的创建仓库、上传和发布步骤。
+完整步骤见 [GUIDE.zh-CN.md](GUIDE.zh-CN.md)。其中保留网页操作教程，并单独记录本次通过 GitHub CLI 与 API 的实际创建过程。
