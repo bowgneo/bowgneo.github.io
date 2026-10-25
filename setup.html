@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="这个个人网站的创建记录，以及使用 GitHub 网页发布个人 github.io 的完整步骤。">
+  <meta name="theme-color" content="#ffffff">
+  <title>建站记录 — Gavin</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="site">
+    <header class="site-header">
+      <a class="site-name" href="index.html" aria-label="Gavin 首页">gavin<span aria-hidden="true">/</span></a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="index.html">文章</a>
+        <a href="about.html">关于</a>
+        <a class="github-nav" href="https://github.com/bowgneo" target="_blank" rel="noopener noreferrer" aria-label="Gavin 的 GitHub（新窗口）"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.12.68-3.78-1.32-3.78-1.32-.51-1.3-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 1.71 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.24-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15A10.7 10.7 0 0 1 12 6.2c.95 0 1.9.13 2.8.38 2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.97.72.78 1.15 1.77 1.15 2.99 0 4.31-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a>
+      </nav>
+    </header>
+    <main class="prose" id="main">
+      <h1>建站记录</h1>
+      <p class="article-meta"><time datetime="2026-10-25">2026 年 10 月 25 日</time> · 更新于 10 月 26 日 · 本地审核稿</p>
+      <p>记录这个网站怎样开始，以及审核通过后怎样用 GitHub 网页把它发布出去。整个发布过程可以用鼠标和网页编辑器完成。</p>
+      <p><strong>目前只完成本地页面。远端仓库尚未创建，文件没有上传，GitHub Pages 没有启用。</strong>以下发布步骤是操作指南，不是已完成的记录。等待页面审核通过后，再执行。</p>
+      <nav class="article-nav" aria-label="本页目录"><a href="#local">本地准备</a><a href="#repository">创建仓库</a><a href="#upload">上传文件</a><a href="#publish">发布</a><a href="#update">更新与恢复</a></nav>
+
+      <h2 id="local">1. 本地准备与审核</h2>
+      <p>网站使用 HTML 和 CSS，没有依赖安装和构建步骤。双击 <code>index.html</code>，用浏览器打开即可预览。</p>
+      <ul>
+        <li><code>index.html</code>：首页和文章目录。</li>
+        <li><code>about.html</code>：关于页面。</li>
+        <li><code>setup.html</code>：这份建站记录。</li>
+        <li><code>style.css</code>：所有页面共用的样式。</li>
+        <li><code>favicon.svg</code>：标签页图标。</li>
+        <li><code>.nojekyll</code>：让 Pages 直接发布静态文件。</li>
+      </ul>
+      <p>第一版做成了个人展示页。审核意见是“大标题和装饰太像 AI 模板”。第二版改为普通博客布局：白底、适合阅读的栏宽、短导航和文章目录。文章暂时留空，个人介绍不设技术方向。</p>
+      <p>10 月 26 日，显示名按本人要求修正为 Gavin，重新整理简介与字体层级。第三版桌面采用个人介绍与文章区分栏的布局，手机采用纵向布局，继续保留空白文章列表。</p>
+      <p>布局参考了 <a href="https://jvns.ca/">Julia Evans</a>、<a href="https://antirez.com/">antirez</a> 和<a href="https://www.ruanyifeng.com/blog/">阮一峰的网络日志</a>，没有复制他们的文章或个人资料。</p>
+      <p>第四版删除泛泛的写作宣言，首页与关于页暂时只保留姓名和 GitHub。页面重新收窄为单栏，参考了 <a href="https://antfu.me/">Anthony Fu</a> 与 <a href="https://leerob.com/">Lee Robinson</a> 的内容布局。</p>
+      <p>先核对名字和文字，再点击各页链接；缩窄浏览器，检查手机宽度下的排版。确认满意后，继续下面的步骤。</p>
+
+      <h2 id="repository">2. 用 GitHub 网页创建仓库</h2>
+      <ol>
+        <li>登录 <a href="https://github.com/">GitHub</a>，确认当前账号是 <code>bowgneo</code>。</li>
+        <li>点击右上角 <strong>＋ → New repository</strong>，或打开<a href="https://github.com/new">新建仓库页面</a>。</li>
+        <li><strong>Owner</strong> 选择 <code>bowgneo</code>；<strong>Repository name</strong> 填写 <code>bowgneo.github.io</code>。</li>
+        <li>选择 <strong>Public</strong>，打开 <strong>Add README</strong>，描述可以填“我的个人主页”。</li>
+        <li>核对仓库全名后，点击 <strong>Create repository</strong>。</li>
+        <li>进入仓库的 <strong>Code</strong> 页面，检查默认分支。本教程使用 <code>main</code>。</li>
+      </ol>
+      <p>个人站点的仓库名必须是“用户名.github.io”。GitHub Free 支持公开仓库的 Pages。参见<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">官方创建说明</a>。</p>
+
+      <h2 id="upload">3. 用网页上传网站文件</h2>
+      <ol>
+        <li>在 <strong>Code</strong> 页面确认选择了 <code>main</code>，并处于仓库根目录。</li>
+        <li>点击 <strong>Add file → Upload files</strong>。</li>
+        <li>点击 <strong>choose your files</strong>，选中 <code>index.html</code>、<code>about.html</code>、<code>setup.html</code>、<code>style.css</code> 和 <code>favicon.svg</code>；也可以把这些文件拖进上传区。</li>
+        <li>确认五个文件直接放在根目录，不要套一层文件夹。</li>
+        <li>填写提交说明，例如 <code>Add personal website</code>，选择 <strong>Commit directly to the main branch</strong>，点击 <strong>Commit changes</strong>。界面如先出现弹窗，填写后再确认。</li>
+      </ol>
+      <h3>创建隐藏文件 .nojekyll</h3>
+      <ol>
+        <li>回到仓库根目录，点击 <strong>Add file → Create new file</strong>。</li>
+        <li>文件名填写 <code>.nojekyll</code>，保留开头的英文句点，不增加其他扩展名。</li>
+        <li>正文留空；如果编辑器不允许提交空内容，按一次回车留一行空白。</li>
+        <li>点击 <strong>Commit changes…</strong>，填写 <code>Disable Jekyll processing</code>，直接提交到 <code>main</code>。</li>
+      </ol>
+      <p><code>.nojekyll</code> 只需要存在。详细界面见<a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">官方上传文件说明</a>。</p>
+
+      <h2 id="publish">4. 开启 Pages 并检查发布</h2>
+      <ol>
+        <li>在仓库顶部点击 <strong>Settings</strong>，再点击左侧 <strong>Pages</strong>。</li>
+        <li>在 <strong>Build and deployment</strong> 中，将 <strong>Source</strong> 设为 <strong>Deploy from a branch</strong>。</li>
+        <li><strong>Branch</strong> 选择 <code>main</code>，文件夹选择 <strong>/(root)</strong>，点击 <strong>Save</strong>。</li>
+        <li>打开仓库顶部 <strong>Actions</strong>，查看最新的 <strong>pages build and deployment</strong> 任务，等待绿色成功标记。红色失败时，点进失败步骤查看原因。</li>
+        <li>回到 <strong>Settings → Pages</strong>，点击 <strong>Visit site</strong>。预计地址是 <code>https://bowgneo.github.io/</code>，实际发布成功后才可作为本站验收地址。</li>
+        <li>检查 <strong>Enforce HTTPS</strong>。已勾选或由系统强制启用时保持即可；可以勾选时就勾选。<code>github.io</code> 站点支持自动 HTTPS。</li>
+      </ol>
+      <p><strong>/(root) 是仓库根目录，不是让你创建一个名叫 root 的文件夹。</strong>入口必须是该目录里的小写 <code>index.html</code>。</p>
+      <p>发布可能需要最多约十分钟。参见<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">配置发布来源</a>和<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https">HTTPS 说明</a>。</p>
+
+      <h2 id="update">5. 以后怎样更新</h2>
+      <ol>
+        <li>打开仓库 <strong>Code → main</strong>，点击要修改的文件。</li>
+        <li>点击铅笔图标 <strong>Edit this file</strong>，修改文字或链接。介绍在 <code>about.html</code>，首页在 <code>index.html</code>，外观在 <code>style.css</code>。</li>
+        <li>点击 <strong>Commit changes…</strong>，填写说明并提交到 <code>main</code>。</li>
+        <li>等待 <strong>Actions</strong> 的最新部署成功，再刷新网站。改动较多时，可以先在本地审核，再用 <strong>Upload files</strong> 上传同名文件覆盖。</li>
+      </ol>
+      <p>GitHub 编辑器里的 Preview 不等于整页的浏览器效果。每次修改后仍要检查完整页面。编辑操作见<a href="https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files">官方说明</a>。</p>
+      <h3>改错后的恢复办法</h3>
+      <p>进入文件的 <strong>History</strong>，选择确认正常的旧提交，使用 <strong>Browse files</strong> 或 <strong>View file</strong> 查看那时的文件，通过 <strong>Raw</strong> 复制完整内容。回到当前 <code>main</code> 的文件编辑器，替换为旧内容并提交一次新的修改。相关 HTML 和 CSS 应恢复为同一版本，再等 Pages 重新部署。</p>
+
+      <h2>6. 常见问题</h2>
+      <ul>
+        <li><strong>404：</strong>先确认 Pages 已启用且 Actions 成功；再核对仓库名、<code>main / (root)</code> 和小写的 <code>index.html</code>。详见<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/troubleshooting-404-errors-for-github-pages-sites">官方排查步骤</a>。</li>
+        <li><strong>没有样式：</strong>确认 <code>style.css</code> 已上传且与 HTML 同级，文件名大小写一致。</li>
+        <li><strong>关于或建站记录打不开：</strong>确认 <code>about.html</code> 和 <code>setup.html</code> 一起上传。</li>
+        <li><strong>更新没有出现：</strong>先等部署成功，再用无痕窗口打开，排除缓存。</li>
+        <li><strong>分支不是 main：</strong>发布设置应选择实际保存网站文件的分支；本教程统一使用 <code>main</code>。</li>
+      </ul>
+
+      <h2>7. 当前执行记录</h2>
+      <ul>
+        <li>已完成：本地页面、第四版排版、显示名修正与操作指南。</li>
+        <li>待完成：用户审核。</li>
+        <li>未执行：创建远端仓库、上传文件、启用 Pages、正式部署和线上验收。</li>
+      </ul>
+      <p>发布后应更新这份记录，补充实际仓库、网址、部署时间和验收结果。</p>
+    </main>
+    <footer class="site-footer"><span>© 2026 Gavin</span><a href="index.html">返回首页</a></footer>
+  </div>
+</body>
+</html>
