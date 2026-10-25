@@ -2,9 +2,9 @@
 
 首次记录：2026 年 10 月 25 日；最近更新：2026 年 10 月 26 日。适用 GitHub 账号：**bowgneo**。
 
-**当前状态：用户已确认创建，公开仓库已建立，正在上传文件、配置 Pages 并部署。** 文中的网页操作是完整图形教程；本次实际执行使用 GitHub CLI 与 API，详见第 12 节。
+**当前状态：网站已发布，HTTPS 已开启。显示名按用户最新要求为 grant；简介与文章列表保持空白。** 文中的网页操作是完整图形教程；本次实际执行使用 GitHub CLI 与 API，详见第 12 节。
 
-仓库为 [bowgneo/bowgneo.github.io](https://github.com/bowgneo/bowgneo.github.io)，网站地址为 **https://bowgneo.github.io/**，当前正在部署验收。
+仓库为 [bowgneo/bowgneo.github.io](https://github.com/bowgneo/bowgneo.github.io)，正式网站为 **https://bowgneo.github.io/**。
 
 ## 1. 本次准备了什么
 
@@ -40,7 +40,7 @@
 
 ### 审核项目
 
-- 显示名 `Gavin`、账号 `bowgneo` 是否正确。
+- 显示名 `grant`、账号 `bowgneo` 是否正确。
 - 问候语、个人介绍、页面颜色和排版是否符合你的偏好。
 - 手机宽度下文字是否完整，页面是否出现横向滚动。
 - GitHub 链接是否指向你的账号，浏览器标签页名称和图标是否正确。
@@ -181,12 +181,12 @@ GitHub 会保留每次提交。可以通过 **History** 找回旧内容，再把
 | 完整步骤记录 | 已准备本指南，并查证 GitHub 官方文档。 | 2026-10-25，本地文档。 |
 | 用户审核页面 | 用户明确确认“创建吧”。 | 2026-10-26。 |
 | 创建远端仓库 | 已通过 GitHub CLI 创建公开仓库；图形操作见第 3 节。 | 2026-10-26 01:09（Asia/Shanghai）。 |
-| 网页上传与提交 | 未执行；按第 4 节操作。 | 待填写。 |
-| 网页启用 Pages | 未执行；按第 5 节操作。 | 待填写。 |
-| Actions 部署检查 | 未执行；按第 6 节操作。 | 待填写。 |
-| HTTPS 与线上验收 | 未执行；正式网址尚未作为发布成果验收。 | 待填写。 |
+| 上传与提交 | 已通过 Git 推送至 main；图形操作见第 4 节。 | 2026-10-26。 |
+| 启用 Pages | 已通过 API 配置 main 与根目录；图形操作见第 5 节。 | 2026-10-26。 |
+| Actions 部署检查 | 首次部署成功，run 40215230730。 | 2026-10-26 01:11:32（Asia/Shanghai）。 |
+| HTTPS 与线上验收 | HTTPS 已开启；首页、关于、记录、CSS、图标均 HTTP 200，与源文件一致。 | 2026-10-26。 |
 
-发布后可以在这里补充仓库链接、最终网站链接、首次部署成功时间，以及必要的页面截图。当前教程根据官方文档整理，未将未执行的 GitHub 点击操作写成已完成记录。
+首次成功部署：[pages build and deployment](https://github.com/bowgneo/bowgneo.github.io/actions/runs/40215230730)。图形教程根据官方文档整理，本次实际使用 CLI/API，未将网页点击写成已执行。
 
 
 ## 11. 页面修改记录与设计参考
@@ -229,4 +229,31 @@ gh repo create bowgneo/bowgneo.github.io --public --description "Gavin's persona
 ```
 
 3. 初始化独立 Git 仓库，使用 `main` 分支；提交者使用 Gavin 及 GitHub noreply 邮箱。
-4. 接下来推送已审核页面，配置 Pages 的分支与目录，检查部署和正式网址。完成后补充结果。
+4. 推送已审核页面至 main，启用 Pages，来源为 main 分支的根目录。
+
+```sh
+git init -b main
+git remote add origin https://github.com/bowgneo/bowgneo.github.io.git
+git add index.html about.html setup.html style.css favicon.svg .nojekyll .gitignore README.md GUIDE.zh-CN.md
+git commit -m "Create personal website"
+git push -u origin main
+gh api --method POST repos/bowgneo/bowgneo.github.io/pages --input - <<'JSON'
+{"build_type":"legacy","source":{"branch":"main","path":"/"}}
+JSON
+```
+
+提交者使用 GitHub noreply 邮箱，认证由已登录的 GitHub CLI 提供；未把凭据写入仓库。命令块省略了本机的认证辅助设置。
+
+5. 首次 Actions 部署在 2026-10-26 01:11:32（Asia/Shanghai）成功，提交为 `02c6ce090794186438dff5958e2df5788d958956`。
+6. 实际请求正式 HTTPS 地址，确认首页、关于页、建站记录、样式与图标均返回 HTTP 200，并逐字节匹配源文件。Pages 的 `https_enforced` 为 `true`。
+7. 发布过程中用户将个人显示名改为 **grant**。已修改网站标题、页眉、关于页、页脚、图标和 README，并再次部署。GitHub 账号及站点地址仍为 bowgneo / bowgneo.github.io。
+
+### 网页操作速查
+
+1. GitHub 右上角 **＋ → New repository**，创建公开的 **bowgneo.github.io**。
+2. **Add file → Upload files**，上传五个页面及资源文件到根目录；另创建 **.nojekyll**。
+3. **Settings → Pages → Deploy from a branch → main → /(root) → Save**。
+4. **Actions** 查看部署成功，再在 Pages 设置里点击 **Visit site**，检查 HTTPS。
+5. 以后点击文件的铅笔图标修改，**Commit changes** 到 main 即自动重新发布。
+
+以上是与本次 CLI/API 配置等价的图形操作步骤，详细说明见第 3 至第 8 节。

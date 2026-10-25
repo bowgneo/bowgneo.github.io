@@ -1,10 +1,10 @@
-# Gavin 的个人主页
+# grant 的个人主页
 
 一个使用原生 HTML 和 CSS 的个人主页，支持手机和桌面。无需安装依赖，无需构建。
 
-**当前状态：页面已获用户确认，公开仓库已创建，正在配置 GitHub Pages 并部署。**
+**当前状态：已发布到 GitHub Pages，HTTPS 已开启。简介与文章列表保持空白，显示名为 grant。**
 
-网站地址：<https://bowgneo.github.io/>（部署验收中）。
+网站地址：<https://bowgneo.github.io/>。
 
 源码仓库：<https://github.com/bowgneo/bowgneo.github.io>。
 
