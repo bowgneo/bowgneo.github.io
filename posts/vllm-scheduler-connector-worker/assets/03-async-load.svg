@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="977" viewBox="0 0 960 977" role="img"><title>03-async-load</title><rect width="960" height="977" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">D 端查询、分配与发起 READ</tspan></text><path d="M 42 96.3 Q 234.8 92.89999999999999 412 96.3
+       Q 423.7 96.3 422 104.6
+       Q 423.7 130.35 420.3 149.6
+       Q 420.3 161.29999999999998 412 159.6
+       Q 215.29999999999998 161.29999999999998 42 157.9
+       Q 30.3 157.9 32 149.6
+       Q 33.7 123.19999999999999 30.3 104.6
+       Q 30.3 92.89999999999999 42 96.3 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 42 93.3 Q 234.8 95.89999999999999 412 93.3
+       Q 420.7 93.3 422 104.6
+       Q 420.7 130.35 423.3 149.6
+       Q 423.3 158.29999999999998 412 159.6
+       Q 215.29999999999998 158.29999999999998 42 160.9
+       Q 33.3 160.9 32 149.6
+       Q 30.7 123.19999999999999 33.3 104.6
+       Q 33.3 95.89999999999999 42 93.3 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="132.6">D 端 EngineCore 进程</tspan></text><path d="M 548 96.3 Q 740.8 92.89999999999999 918 96.3
+       Q 929.7 96.3 928 104.6
+       Q 929.7 130.35 926.3 149.6
+       Q 926.3 161.29999999999998 918 159.6
+       Q 721.3 161.29999999999998 548 157.9
+       Q 536.3 157.9 538 149.6
+       Q 539.7 123.19999999999999 536.3 104.6
+       Q 536.3 92.89999999999999 548 96.3 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 548 93.3 Q 740.8 95.89999999999999 918 93.3
+       Q 926.7 93.3 928 104.6
+       Q 926.7 130.35 929.3 149.6
+       Q 929.3 158.29999999999998 918 159.6
+       Q 721.3 158.29999999999998 548 160.9
+       Q 539.3 160.9 538 149.6
+       Q 536.7 123.19999999999999 539.3 104.6
+       Q 539.3 95.89999999999999 548 93.3 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="556" y="132.6">D 端 Worker 子进程</tspan></text><path d="M 42 185.29999999999998 Q 234.8 181.9 412 185.29999999999998
+       Q 423.7 185.29999999999998 422 193.6
+       Q 423.7 270.61 420.3 331.79999999999995
+       Q 420.3 343.49999999999994 412 341.79999999999995
+       Q 215.29999999999998 343.49999999999994 42 340.09999999999997
+       Q 30.3 340.09999999999997 32 331.79999999999995
+       Q 33.7 253.20799999999997 30.3 193.6
+       Q 30.3 181.9 42 185.29999999999998 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 42 182.29999999999998 Q 234.8 184.9 412 182.29999999999998
+       Q 420.7 182.29999999999998 422 193.6
+       Q 420.7 270.61 423.3 331.79999999999995
+       Q 423.3 340.49999999999994 412 341.79999999999995
+       Q 215.29999999999998 340.49999999999994 42 343.09999999999997
+       Q 33.3 343.09999999999997 32 331.79999999999995
+       Q 30.7 253.20799999999997 33.3 193.6
+       Q 33.3 184.9 42 182.29999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><path d="M 60 203.29999999999998 Q 116.56 199.9 168 203.29999999999998
+       Q 179.7 203.29999999999998 178 211.6
+       Q 179.7 214.25 176.3 214.6
+       Q 176.3 226.29999999999998 168 224.6
+       Q 110.16 226.29999999999998 60 222.9
+       Q 48.3 222.9 50 214.6
+       Q 51.7 211.72 48.3 211.6
+       Q 48.3 199.9 60 203.29999999999998 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 60 200.29999999999998 Q 116.56 202.9 168 200.29999999999998
+       Q 176.7 200.29999999999998 178 211.6
+       Q 176.7 214.25 179.3 214.6
+       Q 179.3 223.29999999999998 168 224.6
+       Q 110.16 223.29999999999998 60 225.9
+       Q 51.3 225.9 50 214.6
+       Q 48.7 211.72 51.3 211.6
+       Q 51.3 202.9 60 200.29999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="58" y="217.6">Connector 接口</tspan></text><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="252.6">get_num_new_matched_tokens()</tspan></text><text data-wrap-width="354" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="289.6">传入本地前缀命中的 token 数</tspan><tspan x="50" y="315.70000000000005">返回待接收 token 数和异步标志</tspan></text><path d="M 42 369.49999999999994 Q 234.8 366.09999999999997 412 369.49999999999994
+       Q 423.7 369.49999999999994 422 377.79999999999995
+       Q 423.7 423.405 420.3 458.9
+       Q 420.3 470.59999999999997 412 468.9
+       Q 215.29999999999998 470.59999999999997 42 467.2
+       Q 30.3 467.2 32 458.9
+       Q 33.7 412.28399999999993 30.3 377.79999999999995
+       Q 30.3 366.09999999999997 42 369.49999999999994 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 42 366.49999999999994 Q 234.8 369.09999999999997 412 366.49999999999994
+       Q 420.7 366.49999999999994 422 377.79999999999995
+       Q 420.7 423.405 423.3 458.9
+       Q 423.3 467.59999999999997 412 468.9
+       Q 215.29999999999998 467.59999999999997 42 470.2
+       Q 33.3 470.2 32 458.9
+       Q 30.7 412.28399999999993 33.3 377.79999999999995
+       Q 33.3 369.09999999999997 42 366.49999999999994 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="405.79999999999995">KVCacheManager.allocate_slots()</tspan></text><text data-wrap-width="354" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="442.79999999999995">为外部 KV 分配本地目标 blocks</tspan></text><defs><marker id="a802" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M227 341.79999999999995 Q224.4 354.79999999999995 227 367.79999999999995" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a802)"/><path d="M 42 496.59999999999997 Q 234.8 493.2 412 496.59999999999997
+       Q 423.7 496.59999999999997 422 504.9
+       Q 423.7 567.555 420.3 617
+       Q 420.3 628.7 412 627
+       Q 215.29999999999998 628.7 42 625.3
+       Q 30.3 625.3 32 617
+       Q 33.7 553.024 30.3 504.9
+       Q 30.3 493.2 42 496.59999999999997 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 42 493.59999999999997 Q 234.8 496.2 412 493.59999999999997
+       Q 420.7 493.59999999999997 422 504.9
+       Q 420.7 567.555 423.3 617
+       Q 423.3 625.7 412 627
+       Q 215.29999999999998 625.7 42 628.3
+       Q 33.3 628.3 32 617
+       Q 30.7 553.024 33.3 504.9
+       Q 33.3 496.2 42 493.59999999999997 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><path d="M 60 514.6 Q 116.56 511.2 168 514.6
+       Q 179.7 514.6 178 522.9
+       Q 179.7 525.55 176.3 525.9
+       Q 176.3 537.6 168 535.9
+       Q 110.16 537.6 60 534.1999999999999
+       Q 48.3 534.1999999999999 50 525.9
+       Q 51.7 523.02 48.3 522.9
+       Q 48.3 511.2 60 514.6 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 60 511.59999999999997 Q 116.56 514.1999999999999 168 511.59999999999997
+       Q 176.7 511.59999999999997 178 522.9
+       Q 176.7 525.55 179.3 525.9
+       Q 179.3 534.6 168 535.9
+       Q 110.16 534.6 60 537.1999999999999
+       Q 51.3 537.1999999999999 50 525.9
+       Q 48.7 523.02 51.3 522.9
+       Q 51.3 514.1999999999999 60 511.59999999999997 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="58" y="528.9">Connector 接口</tspan></text><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="563.9">update_state_after_alloc()</tspan></text><text data-wrap-width="354" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="600.9">记录目标 block IDs 和待接收的 token 数</tspan></text><defs><marker id="a808" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M227 468.9 Q224.4 481.9 227 494.9" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a808)"/><path d="M 548 660.7 Q 740.8 657.3 918 660.7
+       Q 929.7 660.7 928 669
+       Q 929.7 746.01 926.3 807.2
+       Q 926.3 818.9000000000001 918 817.2
+       Q 721.3 818.9000000000001 548 815.5
+       Q 536.3 815.5 538 807.2
+       Q 539.7 728.608 536.3 669
+       Q 536.3 657.3 548 660.7 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 548 657.7 Q 740.8 660.3 918 657.7
+       Q 926.7 657.7 928 669
+       Q 926.7 746.01 929.3 807.2
+       Q 929.3 815.9000000000001 918 817.2
+       Q 721.3 815.9000000000001 548 818.5
+       Q 539.3 818.5 538 807.2
+       Q 536.7 728.608 539.3 669
+       Q 539.3 660.3 548 657.7 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><path d="M 566 678.7 Q 622.56 675.3 674 678.7
+       Q 685.7 678.7 684 687
+       Q 685.7 689.65 682.3 690
+       Q 682.3 701.7 674 700
+       Q 616.16 701.7 566 698.3
+       Q 554.3 698.3 556 690
+       Q 557.7 687.12 554.3 687
+       Q 554.3 675.3 566 678.7 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 566 675.7 Q 622.56 678.3 674 675.7
+       Q 682.7 675.7 684 687
+       Q 682.7 689.65 685.3 690
+       Q 685.3 698.7 674 700
+       Q 616.16 698.7 566 701.3
+       Q 557.3 701.3 556 690
+       Q 554.7 687.12 557.3 687
+       Q 557.3 678.3 566 675.7 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="564" y="693">Connector 接口</tspan></text><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="556" y="728">start_load_kv()</tspan></text><text data-wrap-width="354" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="556" y="765">在 post_forward() 中调用</tspan><tspan x="556" y="791.1">把任务交给接收线程</tspan></text><path d="M 42 660.7 Q 234.8 657.3 412 660.7
+       Q 423.7 660.7 422 669
+       Q 423.7 746.01 420.3 807.2
+       Q 420.3 818.9000000000001 412 817.2
+       Q 215.29999999999998 818.9000000000001 42 815.5
+       Q 30.3 815.5 32 807.2
+       Q 33.7 728.608 30.3 669
+       Q 30.3 657.3 42 660.7 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 42 657.7 Q 234.8 660.3 412 657.7
+       Q 420.7 657.7 422 669
+       Q 420.7 746.01 423.3 807.2
+       Q 423.3 815.9000000000001 412 817.2
+       Q 215.29999999999998 815.9000000000001 42 818.5
+       Q 33.3 818.5 32 807.2
+       Q 30.7 728.608 33.3 669
+       Q 33.3 660.3 42 657.7 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><path d="M 60 678.7 Q 116.56 675.3 168 678.7
+       Q 179.7 678.7 178 687
+       Q 179.7 689.65 176.3 690
+       Q 176.3 701.7 168 700
+       Q 110.16 701.7 60 698.3
+       Q 48.3 698.3 50 690
+       Q 51.7 687.12 48.3 687
+       Q 48.3 675.3 60 678.7 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 60 675.7 Q 116.56 678.3 168 675.7
+       Q 176.7 675.7 178 687
+       Q 176.7 689.65 179.3 690
+       Q 179.3 698.7 168 700
+       Q 110.16 698.7 60 701.3
+       Q 51.3 701.3 50 690
+       Q 48.7 687.12 51.3 687
+       Q 51.3 678.3 60 675.7 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="58" y="693">Connector 接口</tspan></text><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="728">build_connector_meta()</tspan></text><text data-wrap-width="354" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="765">把接收任务写入 metadata</tspan></text><defs><marker id="a819" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M227 627 Q224 643 227 659" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a819)"/><text data-wrap-width="112" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="480" y="727.1">经 Executor</tspan></text><defs><marker id="a821" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M422 738.1 Q480 741.1 538 738.1" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a821)"/><path d="M 548 844.9000000000001 Q 740.8 841.5 918 844.9000000000001
+       Q 929.7 844.9000000000001 928 853.2
+       Q 929.7 898.8050000000001 926.3 934.3000000000001
+       Q 926.3 946.0000000000001 918 944.3000000000001
+       Q 721.3 946.0000000000001 548 942.6
+       Q 536.3 942.6 538 934.3000000000001
+       Q 539.7 887.6840000000001 536.3 853.2
+       Q 536.3 841.5 548 844.9000000000001 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 548 841.9000000000001 Q 740.8 844.5 918 841.9000000000001
+       Q 926.7 841.9000000000001 928 853.2
+       Q 926.7 898.8050000000001 929.3 934.3000000000001
+       Q 929.3 943.0000000000001 918 944.3000000000001
+       Q 721.3 943.0000000000001 548 945.6
+       Q 539.3 945.6 538 934.3000000000001
+       Q 536.7 887.6840000000001 539.3 853.2
+       Q 539.3 844.5 548 841.9000000000001 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="354" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="556" y="881.2">batch_transfer_sync_read()</tspan></text><text data-wrap-width="354" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="556" y="918.2">接收线程把 KV 读入目标 blocks</tspan></text><defs><marker id="a825" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M733 817.2 Q730.4 830.2 733 843.2" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a825)"/></svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="259" viewBox="0 0 960 259" role="img"><title>39-ascend-store-reuse-blocks-sketch</title><rect width="960" height="259" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">block 12 何时可以写入新 KV</tspan></text><path d="M 358 96.3 Q 485.28 92.89999999999999 602 96.3
+       Q 613.7 96.3 612 104.6
+       Q 613.7 167.255 610.3 216.7
+       Q 610.3 228.39999999999998 602 226.7
+       Q 472.08 228.39999999999998 358 225
+       Q 346.3 225 348 216.7
+       Q 349.7 152.724 346.3 104.6
+       Q 346.3 92.89999999999999 358 96.3 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 358 93.3 Q 485.28 95.89999999999999 602 93.3
+       Q 610.7 93.3 612 104.6
+       Q 610.7 167.255 613.3 216.7
+       Q 613.3 225.39999999999998 602 226.7
+       Q 472.08 225.39999999999998 358 228
+       Q 349.3 228 348 216.7
+       Q 346.7 152.724 349.3 104.6
+       Q 349.3 95.89999999999999 358 93.3 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><path d="M 376 114.3 Q 432.56 110.89999999999999 484 114.3
+       Q 495.7 114.3 494 122.6
+       Q 495.7 125.25 492.3 125.6
+       Q 492.3 137.29999999999998 484 135.6
+       Q 426.15999999999997 137.29999999999998 376 133.9
+       Q 364.3 133.9 366 125.6
+       Q 367.7 122.72 364.3 122.6
+       Q 364.3 110.89999999999999 376 114.3 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 376 111.3 Q 432.56 113.89999999999999 484 111.3
+       Q 492.7 111.3 494 122.6
+       Q 492.7 125.25 495.3 125.6
+       Q 495.3 134.29999999999998 484 135.6
+       Q 426.15999999999997 134.29999999999998 376 136.9
+       Q 367.3 136.9 366 125.6
+       Q 364.7 122.72 367.3 122.6
+       Q 367.3 113.89999999999999 376 111.3 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="374" y="128.6">Connector 接口</tspan></text><text data-wrap-width="228" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="366" y="163.6">wait_for_save()</tspan></text><text data-wrap-width="228" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="366" y="200.6">等 block 12 的 PUT 结束</tspan></text><path d="M 42 96.3 Q 169.28 92.89999999999999 286 96.3
+       Q 297.7 96.3 296 104.6
+       Q 297.7 167.255 294.3 216.7
+       Q 294.3 228.39999999999998 286 226.7
+       Q 156.07999999999998 228.39999999999998 42 225
+       Q 30.3 225 32 216.7
+       Q 33.7 152.724 30.3 104.6
+       Q 30.3 92.89999999999999 42 96.3 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 42 93.3 Q 169.28 95.89999999999999 286 93.3
+       Q 294.7 93.3 296 104.6
+       Q 294.7 167.255 297.3 216.7
+       Q 297.3 225.39999999999998 286 226.7
+       Q 156.07999999999998 225.39999999999998 42 228
+       Q 33.3 228 32 216.7
+       Q 30.7 152.724 33.3 104.6
+       Q 33.3 95.89999999999999 42 93.3 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="228" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="132.6">本轮 forward</tspan></text><text data-wrap-width="228" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="169.6">把 KV 写入 block 12</tspan></text><path d="M 674 96.3 Q 801.28 92.89999999999999 918 96.3
+       Q 929.7 96.3 928 104.6
+       Q 929.7 167.255 926.3 216.7
+       Q 926.3 228.39999999999998 918 226.7
+       Q 788.08 228.39999999999998 674 225
+       Q 662.3 225 664 216.7
+       Q 665.7 152.724 662.3 104.6
+       Q 662.3 92.89999999999999 674 96.3 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 674 93.3 Q 801.28 95.89999999999999 918 93.3
+       Q 926.7 93.3 928 104.6
+       Q 926.7 167.255 929.3 216.7
+       Q 929.3 225.39999999999998 918 226.7
+       Q 788.08 225.39999999999998 674 228
+       Q 665.3 228 664 216.7
+       Q 662.7 152.724 665.3 104.6
+       Q 665.3 95.89999999999999 674 93.3 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="228" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="682" y="132.6">后续 forward</tspan></text><text data-wrap-width="228" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="682" y="169.6">复用 block 12 写入新 KV</tspan></text><defs><marker id="a1632" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M296 160.64999999999998 Q322 163.64999999999998 348 160.64999999999998" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1632)"/><defs><marker id="a1633" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M612 160.64999999999998 Q638 163.64999999999998 664 160.64999999999998" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1633)"/></svg>

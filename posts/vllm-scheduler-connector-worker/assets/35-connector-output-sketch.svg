@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="454" viewBox="0 0 960 454" role="img"><title>35-connector-output-sketch</title><rect width="960" height="454" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">post_forward() 怎样填充 KVConnectorOutput</tspan></text><text data-wrap-width="896" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="32" y="92.6">ActiveKVConnector 调用 Worker 侧 Connector</tspan></text><text data-wrap-width="436" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="400"><tspan x="32" y="150.7">Connector 接口</tspan></text><text data-wrap-width="380" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="400"><tspan x="548" y="150.7">KVConnectorOutput 字段</tspan></text><path d="M 42 171.39999999999998 Q 258.72 168 458 171.39999999999998
+       Q 469.7 171.39999999999998 468 179.7
+       Q 469.7 239.66 466.3 286.9
+       Q 466.3 298.59999999999997 458 296.9
+       Q 236.92 298.59999999999997 42 295.2
+       Q 30.3 295.2 32 286.9
+       Q 33.7 225.668 30.3 179.7
+       Q 30.3 168 42 171.39999999999998 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 42 168.39999999999998 Q 258.72 171 458 168.39999999999998
+       Q 466.7 168.39999999999998 468 179.7
+       Q 466.7 239.66 469.3 286.9
+       Q 469.3 295.59999999999997 458 296.9
+       Q 236.92 295.59999999999997 42 298.2
+       Q 33.3 298.2 32 286.9
+       Q 30.7 225.668 33.3 179.7
+       Q 33.3 171 42 168.39999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="400" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="207.7">get_transfer_results()</tspan></text><text data-wrap-width="400" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="244.7">传入 finished_req_ids</tspan><tspan x="50" y="270.8">返回 KVConnectorTransferResults</tspan></text><path d="M 558 171.39999999999998 Q 745.6 168 918 171.39999999999998
+       Q 929.7 171.39999999999998 928 179.7
+       Q 929.7 239.66 926.3 286.9
+       Q 926.3 298.59999999999997 918 296.9
+       Q 726.6 298.59999999999997 558 295.2
+       Q 546.3 295.2 548 286.9
+       Q 549.7 225.668 546.3 179.7
+       Q 546.3 168 558 171.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 558 168.39999999999998 Q 745.6 171 918 168.39999999999998
+       Q 926.7 168.39999999999998 928 179.7
+       Q 926.7 239.66 929.3 286.9
+       Q 929.3 295.59999999999997 918 296.9
+       Q 726.6 295.59999999999997 558 298.2
+       Q 549.3 298.2 548 286.9
+       Q 546.7 225.668 549.3 179.7
+       Q 549.3 171 558 168.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="566" y="207.7">finished_sending · 发送结束</tspan><tspan x="566" y="236.7">finished_recving · 接收结束</tspan><tspan x="566" y="265.7">failed_recving · 接收失败</tspan></text><defs><marker id="a1447" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M468 233.29999999999998 Q508 236.29999999999998 548 233.29999999999998" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1447)"/><path d="M 42 322.59999999999997 Q 258.72 319.2 458 322.59999999999997
+       Q 469.7 322.59999999999997 468 330.9
+       Q 469.7 376.505 466.3 412
+       Q 466.3 423.7 458 422
+       Q 236.92 423.7 42 420.3
+       Q 30.3 420.3 32 412
+       Q 33.7 365.38399999999996 30.3 330.9
+       Q 30.3 319.2 42 322.59999999999997 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 42 319.59999999999997 Q 258.72 322.2 458 319.59999999999997
+       Q 466.7 319.59999999999997 468 330.9
+       Q 466.7 376.505 469.3 412
+       Q 469.3 420.7 458 422
+       Q 236.92 420.7 42 423.3
+       Q 33.3 423.3 32 412
+       Q 30.7 365.38399999999996 33.3 330.9
+       Q 33.3 322.2 42 319.59999999999997 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="400" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="358.9">get_block_ids_with_load_errors()</tspan></text><text data-wrap-width="400" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="395.9">返回加载失败的 block IDs</tspan></text><path d="M 558 322.59999999999997 Q 745.6 319.2 918 322.59999999999997
+       Q 929.7 322.59999999999997 928 330.9
+       Q 929.7 376.505 926.3 412
+       Q 926.3 423.7 918 422
+       Q 726.6 423.7 558 420.3
+       Q 546.3 420.3 548 412
+       Q 549.7 365.38399999999996 546.3 330.9
+       Q 546.3 319.2 558 322.59999999999997 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 558 319.59999999999997 Q 745.6 322.2 918 319.59999999999997
+       Q 926.7 319.59999999999997 928 330.9
+       Q 926.7 376.505 929.3 412
+       Q 929.3 420.7 918 422
+       Q 726.6 420.7 558 423.3
+       Q 549.3 423.3 548 412
+       Q 546.7 365.38399999999996 549.3 330.9
+       Q 549.3 322.2 558 319.59999999999997 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="566" y="358.9">invalid_block_ids</tspan></text><defs><marker id="a1453" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M468 371.45 Q508 374.45 548 371.45" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1453)"/></svg>

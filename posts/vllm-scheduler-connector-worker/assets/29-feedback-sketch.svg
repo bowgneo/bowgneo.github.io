@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1081" viewBox="0 0 960 1081" role="img"><title>29-feedback-sketch</title><rect width="960" height="1081" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">update_from_output() 中的回调与回收</tspan></text><path d="M 126 96.3 Q 261.6 92.89999999999999 386 96.3
+       Q 397.7 96.3 396 104.6
+       Q 397.7 164.56 394.3 211.8
+       Q 394.3 223.5 386 221.8
+       Q 247.6 223.5 126 220.10000000000002
+       Q 114.3 220.10000000000002 116 211.8
+       Q 117.7 150.56799999999998 114.3 104.6
+       Q 114.3 92.89999999999999 126 96.3 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 126 93.3 Q 261.6 95.89999999999999 386 93.3
+       Q 394.7 93.3 396 104.6
+       Q 394.7 164.56 397.3 211.8
+       Q 397.3 220.5 386 221.8
+       Q 247.6 220.5 126 223.10000000000002
+       Q 117.3 223.10000000000002 116 211.8
+       Q 114.7 150.56799999999998 117.3 104.6
+       Q 117.3 95.89999999999999 126 93.3 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="244" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="134" y="132.6">scheduler :</tspan></text><text data-wrap-width="244" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="134" y="169.6">Scheduler</tspan></text><path d="M 574 96.3 Q 709.6 92.89999999999999 834 96.3
+       Q 845.7 96.3 844 104.6
+       Q 845.7 164.56 842.3 211.8
+       Q 842.3 223.5 834 221.8
+       Q 695.6 223.5 574 220.10000000000002
+       Q 562.3 220.10000000000002 564 211.8
+       Q 565.7 150.56799999999998 562.3 104.6
+       Q 562.3 92.89999999999999 574 96.3 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 574 93.3 Q 709.6 95.89999999999999 834 93.3
+       Q 842.7 93.3 844 104.6
+       Q 842.7 164.56 845.3 211.8
+       Q 845.3 220.5 834 221.8
+       Q 695.6 220.5 574 223.10000000000002
+       Q 565.3 223.10000000000002 564 211.8
+       Q 562.7 150.56799999999998 565.3 104.6
+       Q 565.3 95.89999999999999 574 93.3 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="244" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="582" y="132.6">connector :</tspan></text><text data-wrap-width="244" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="582" y="169.6">KVConnectorBase_V1</tspan><tspan x="582" y="195.7">SCHEDULER 角色</tspan></text><defs><marker id="a1343" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M256 221.8 Q253 628.4 256 1035" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><defs><marker id="a1344" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M704 221.8 Q701 628.4 704 1035" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><rect x="250" y="251.8" width="12" height="239.5" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="408" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="276" y="271.8">_free_request()</tspan></text><text data-wrap-width="436" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="322.8">request_finished()</tspan><tspan x="480" y="348.90000000000003">或 request_finished_all_groups()</tspan></text><text data-wrap-width="436" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="381">请求结束时，经 _connector_finished() 调用</tspan></text><defs><marker id="a1322" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M262 401.1 Q483 404.1 704 401.1" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1322)"/><text data-wrap-width="436" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="439.1">delay_free, kv_transfer_params</tspan></text><text data-wrap-width="436" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="471.20000000000005">delay_free=True 时保留源 blocks</tspan></text><defs><marker id="a1325" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M704 491.3 Q483 488.3 262 491.3" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1325)"/><rect x="250" y="527.3" width="12" height="501.70000000000005" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="408" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="276" y="547.3">_update_from_kv_xfer_finished()</tspan></text><text data-wrap-width="436" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="598.3">update_connector_output()</tspan></text><text data-wrap-width="436" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="630.4">传入本轮 kv_connector_output</tspan></text><defs><marker id="a1330" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M262 650.5 Q483 653.5 704 650.5" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1330)"/><text data-wrap-width="436" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="688.5">回调返回</tspan></text><text data-wrap-width="436" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="720.6">Scheduler 读取处理后的完成集合</tspan></text><defs><marker id="a1333" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M704 740.7 Q483 737.7 262 740.7" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1333)"/><path d="M 286 762.4000000000001 Q 488.15999999999997 759 674 762.4000000000001
+       Q 685.7 762.4000000000001 684 770.7
+       Q 685.7 830.6600000000001 682.3 877.9000000000001
+       Q 682.3 889.6000000000001 674 887.9000000000001
+       Q 467.76 889.6000000000001 286 886.2
+       Q 274.3 886.2 276 877.9000000000001
+       Q 277.7 816.668 274.3 770.7
+       Q 274.3 759 286 762.4000000000001 Z" fill="#ffffff" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 286 759.4000000000001 Q 488.15999999999997 762 674 759.4000000000001
+       Q 682.7 759.4000000000001 684 770.7
+       Q 682.7 830.6600000000001 685.3 877.9000000000001
+       Q 685.3 886.6000000000001 674 887.9000000000001
+       Q 467.76 886.6000000000001 286 889.2
+       Q 277.3 889.2 276 877.9000000000001
+       Q 274.7 816.668 277.3 770.7
+       Q 277.3 762 286 759.4000000000001 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="372" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="294" y="798.7">接收结束 · finished_recving</tspan></text><text data-wrap-width="372" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="294" y="835.7">请求仍待调度：记录完成，保留目标块</tspan><tspan x="294" y="861.8000000000001">请求已结束：_free_blocks() 处理目标块</tspan></text><defs><marker id="a1337" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M262 824.3000000000001 Q269 825.7 276 824.3000000000001" stroke="#346b9b" fill="none" stroke-width="1.5"/><path d="M 286 919.6000000000001 Q 488.15999999999997 916.2 674 919.6000000000001
+       Q 685.7 919.6000000000001 684 927.9000000000001
+       Q 685.7 973.5050000000001 682.3 1009.0000000000001
+       Q 682.3 1020.7000000000002 674 1019.0000000000001
+       Q 467.76 1020.7000000000002 286 1017.3000000000001
+       Q 274.3 1017.3000000000001 276 1009.0000000000001
+       Q 277.7 962.3840000000001 274.3 927.9000000000001
+       Q 274.3 916.2 286 919.6000000000001 Z" fill="#ffffff" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 286 916.6000000000001 Q 488.15999999999997 919.2 674 916.6000000000001
+       Q 682.7 916.6000000000001 684 927.9000000000001
+       Q 682.7 973.5050000000001 685.3 1009.0000000000001
+       Q 685.3 1017.7000000000002 674 1019.0000000000001
+       Q 467.76 1017.7000000000002 286 1020.3000000000001
+       Q 277.3 1020.3000000000001 276 1009.0000000000001
+       Q 274.7 962.3840000000001 277.3 927.9000000000001
+       Q 277.3 919.2 286 916.6000000000001 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="372" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="294" y="955.9000000000001">发送结束 · finished_sending</tspan></text><text data-wrap-width="372" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="294" y="992.9000000000001">_free_blocks() 处理此前保留的源块</tspan></text><defs><marker id="a1341" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M262 968.45 Q269 969.85 276 968.45" stroke="#346b9b" fill="none" stroke-width="1.5"/></svg>

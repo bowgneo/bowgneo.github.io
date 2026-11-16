@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1226" viewBox="0 0 960 1226" role="img"><title>38-ascend-store-sketch</title><rect width="960" height="1226" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">Scheduler 查询前缀并分配目标 blocks</tspan></text><text data-wrap-width="896" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="32" y="92.6">EngineCore 进程</tspan></text><path d="M 42 132.39999999999998 Q 130.8 129 212 132.39999999999998
+       Q 223.7 132.39999999999998 222 140.7
+       Q 223.7 200.66 220.3 247.89999999999998
+       Q 220.3 259.59999999999997 212 257.9
+       Q 121.3 259.59999999999997 42 256.2
+       Q 30.3 256.2 32 247.89999999999998
+       Q 33.7 186.668 30.3 140.7
+       Q 30.3 129 42 132.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 42 129.39999999999998 Q 130.8 132 212 129.39999999999998
+       Q 220.7 129.39999999999998 222 140.7
+       Q 220.7 200.66 223.3 247.89999999999998
+       Q 223.3 256.59999999999997 212 257.9
+       Q 121.3 256.59999999999997 42 259.2
+       Q 33.3 259.2 32 247.89999999999998
+       Q 30.7 186.668 33.3 140.7
+       Q 33.3 132 42 129.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="154" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="168.7">scheduler :</tspan></text><text data-wrap-width="154" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="205.7">Scheduler</tspan></text><path d="M 332.5 132.39999999999998 Q 444.7 129 547.5 132.39999999999998
+       Q 559.2 132.39999999999998 557.5 140.7
+       Q 559.2 200.66 555.8 247.89999999999998
+       Q 555.8 259.59999999999997 547.5 257.9
+       Q 432.95 259.59999999999997 332.5 256.2
+       Q 320.8 256.2 322.5 247.89999999999998
+       Q 324.2 186.668 320.8 140.7
+       Q 320.8 129 332.5 132.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 332.5 129.39999999999998 Q 444.7 132 547.5 129.39999999999998
+       Q 556.2 129.39999999999998 557.5 140.7
+       Q 556.2 200.66 558.8 247.89999999999998
+       Q 558.8 256.59999999999997 547.5 257.9
+       Q 432.95 256.59999999999997 332.5 259.2
+       Q 323.8 259.2 322.5 247.89999999999998
+       Q 321.2 186.668 323.8 140.7
+       Q 323.8 132 332.5 129.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="199" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="340.5" y="168.7">cache_manager :</tspan></text><text data-wrap-width="199" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="340.5" y="205.7">KVCacheManager</tspan></text><path d="M 668 132.39999999999998 Q 798.4 129 918 132.39999999999998
+       Q 929.7 132.39999999999998 928 140.7
+       Q 929.7 200.66 926.3 247.89999999999998
+       Q 926.3 259.59999999999997 918 257.9
+       Q 784.9 259.59999999999997 668 256.2
+       Q 656.3 256.2 658 247.89999999999998
+       Q 659.7 186.668 656.3 140.7
+       Q 656.3 129 668 132.39999999999998 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 668 129.39999999999998 Q 798.4 132 918 129.39999999999998
+       Q 926.7 129.39999999999998 928 140.7
+       Q 926.7 200.66 929.3 247.89999999999998
+       Q 929.3 256.59999999999997 918 257.9
+       Q 784.9 256.59999999999997 668 259.2
+       Q 659.3 259.2 658 247.89999999999998
+       Q 656.7 186.668 659.3 140.7
+       Q 659.3 132 668 129.39999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="234" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="676" y="168.7">connector :</tspan></text><text data-wrap-width="234" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="676" y="205.7">AscendStoreConnector</tspan><tspan x="676" y="231.79999999999998">SCHEDULER 角色</tspan></text><defs><marker id="a1522" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M127 257.9 Q124 718.7 127 1179.5" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><defs><marker id="a1523" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M440 257.9 Q437 718.7 440 1179.5" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><defs><marker id="a1524" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M793 257.9 Q790 718.7 793 1179.5" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><rect x="121" y="287.9" width="12" height="905.6" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="273" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="147" y="307.9">schedule()</tspan></text><rect x="434" y="379" width="12" height="58.10000000000002" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="301" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="358.9">get_computed_blocks()</tspan></text><defs><marker id="a1488" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M133 379 Q283.5 382 434 379" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1488)"/><text data-wrap-width="301" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="417">本地命中的 blocks 和 token 数</tspan></text><defs><marker id="a1490" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M434 437.1 Q283.5 434.1 133 437.1" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1490)"/><rect x="787" y="558.3" width="12" height="90.20000000000005" rx="1" fill="#eef7f4" stroke="#287d70" stroke-width="1.5"/><path d="M 562.5 458.8 Q 619.06 455.40000000000003 670.5 458.8
+       Q 682.2 458.8 680.5 467.1
+       Q 682.2 469.75 678.8 470.1
+       Q 678.8 481.8 670.5 480.1
+       Q 612.66 481.8 562.5 478.40000000000003
+       Q 550.8 478.40000000000003 552.5 470.1
+       Q 554.2 467.22 550.8 467.1
+       Q 550.8 455.40000000000003 562.5 458.8 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 562.5 455.8 Q 619.06 458.40000000000003 670.5 455.8
+       Q 679.2 455.8 680.5 467.1
+       Q 679.2 469.75 681.8 470.1
+       Q 681.8 478.8 670.5 480.1
+       Q 612.66 478.8 562.5 481.40000000000003
+       Q 553.8 481.40000000000003 552.5 470.1
+       Q 551.2 467.22 553.8 467.1
+       Q 553.8 458.40000000000003 562.5 455.8 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="560.5" y="473.1">Connector 接口</tspan></text><text data-wrap-width="341" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="616.5" y="506.1">get_num_new_matched_tokens()</tspan></text><text data-wrap-width="341" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="616.5" y="538.2">按 block_hashes 查共享存储</tspan></text><defs><marker id="a1496" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M133 558.3 Q460 561.3 787 558.3" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1496)"/><text data-wrap-width="301" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="596.3">本地以外可加载的 token 数</tspan></text><text data-wrap-width="301" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="628.4">异步标志为 False</tspan></text><defs><marker id="a1499" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M787 648.5 Q460 645.5 133 648.5" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1499)"/><rect x="434" y="738.7" width="12" height="58.10000000000002" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="301" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="686.5">allocate_slots()</tspan></text><text data-wrap-width="301" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="718.6">预留本地目标 blocks</tspan></text><defs><marker id="a1503" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M133 738.7 Q283.5 741.7 434 738.7" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1503)"/><text data-wrap-width="301" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="776.7">分配成功</tspan></text><defs><marker id="a1505" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M434 796.8000000000001 Q283.5 793.8000000000001 133 796.8000000000001" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1505)"/><path d="M 562.5 818.5000000000001 Q 619.06 815.1 670.5 818.5000000000001
+       Q 682.2 818.5000000000001 680.5 826.8000000000001
+       Q 682.2 829.45 678.8 829.8000000000001
+       Q 678.8 841.5000000000001 670.5 839.8000000000001
+       Q 612.66 841.5000000000001 562.5 838.1
+       Q 550.8 838.1 552.5 829.8000000000001
+       Q 554.2 826.9200000000001 550.8 826.8000000000001
+       Q 550.8 815.1 562.5 818.5000000000001 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 562.5 815.5000000000001 Q 619.06 818.1 670.5 815.5000000000001
+       Q 679.2 815.5000000000001 680.5 826.8000000000001
+       Q 679.2 829.45 681.8 829.8000000000001
+       Q 681.8 838.5000000000001 670.5 839.8000000000001
+       Q 612.66 838.5000000000001 562.5 841.1
+       Q 553.8 841.1 552.5 829.8000000000001
+       Q 551.2 826.9200000000001 553.8 826.8000000000001
+       Q 553.8 818.1 562.5 815.5000000000001 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="560.5" y="832.8000000000001">Connector 接口</tspan></text><text data-wrap-width="341" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="616.5" y="865.8000000000001">update_state_after_alloc()</tspan></text><text data-wrap-width="341" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="616.5" y="897.9000000000001">传入请求的本地 blocks</tspan></text><defs><marker id="a1511" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M133 918 Q463 921 793 918" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1511)"/><rect x="787" y="1039.2" width="12" height="58.09999999999991" rx="1" fill="#eef7f4" stroke="#287d70" stroke-width="1.5"/><path d="M 562.5 939.7 Q 619.06 936.3 670.5 939.7
+       Q 682.2 939.7 680.5 948
+       Q 682.2 950.65 678.8 951
+       Q 678.8 962.7 670.5 961
+       Q 612.66 962.7 562.5 959.3
+       Q 550.8 959.3 552.5 951
+       Q 554.2 948.12 550.8 948
+       Q 550.8 936.3 562.5 939.7 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 562.5 936.7 Q 619.06 939.3 670.5 936.7
+       Q 679.2 936.7 680.5 948
+       Q 679.2 950.65 681.8 951
+       Q 681.8 959.7 670.5 961
+       Q 612.66 959.7 562.5 962.3
+       Q 553.8 962.3 552.5 951
+       Q 551.2 948.12 553.8 948
+       Q 553.8 939.3 562.5 936.7 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="112" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="14" font-weight="500"><tspan x="560.5" y="954">Connector 接口</tspan></text><text data-wrap-width="341" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="616.5" y="987">build_connector_meta()</tspan></text><text data-wrap-width="341" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="616.5" y="1019.1">汇总本轮的加载与保存信息</tspan></text><defs><marker id="a1516" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M133 1039.2 Q460 1042.2 787 1039.2" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1516)"/><text data-wrap-width="301" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="283.5" y="1077.2">Connector metadata</tspan></text><defs><marker id="a1518" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M787 1097.3 Q460 1094.3 133 1097.3" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1518)"/><text data-wrap-width="273" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="147" y="1135.3">写入 SchedulerOutput 的</tspan><tspan x="147" y="1161.3999999999999">kv_connector_metadata</tspan></text></svg>

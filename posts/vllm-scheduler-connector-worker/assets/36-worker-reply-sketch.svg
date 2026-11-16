@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="304" viewBox="0 0 960 304" role="img"><title>36-worker-reply-sketch</title><rect width="960" height="304" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">多进程执行的 Worker 回包</tspan></text><text data-wrap-width="160" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="400"><tspan x="32" y="114.6">Worker 子进程</tspan></text><text data-wrap-width="662" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="400"><tspan x="266" y="114.6">EngineCore 进程</tspan></text><defs><marker id="a1457" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M32 124.6 Q112 127.6 192 124.6" stroke="#718396" fill="none" stroke-width="1.5"/><defs><marker id="a1458" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M266 124.6 Q597 127.6 928 124.6" stroke="#718396" fill="none" stroke-width="1.5"/><path d="M 276 146.29999999999998 Q 388.72 142.9 492 146.29999999999998
+       Q 503.7 146.29999999999998 502 154.6
+       Q 503.7 214.56 500.3 261.8
+       Q 500.3 273.5 492 271.8
+       Q 376.91999999999996 273.5 276 270.1
+       Q 264.3 270.1 266 261.8
+       Q 267.7 200.56799999999998 264.3 154.6
+       Q 264.3 142.9 276 146.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 276 143.29999999999998 Q 388.72 145.9 492 143.29999999999998
+       Q 500.7 143.29999999999998 502 154.6
+       Q 500.7 214.56 503.3 261.8
+       Q 503.3 270.5 492 271.8
+       Q 376.91999999999996 270.5 276 273.1
+       Q 267.3 273.1 266 261.8
+       Q 264.7 200.56799999999998 267.3 154.6
+       Q 267.3 145.9 276 143.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="200" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="284" y="182.6">MultiprocExecutor</tspan></text><text data-wrap-width="200" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="284" y="219.6">汇总 KV 状态</tspan><tspan x="284" y="245.7">写入输出 rank 的结果</tspan></text><path d="M 42 146.29999999999998 Q 115.2 142.9 182 146.29999999999998
+       Q 193.7 146.29999999999998 192 154.6
+       Q 193.7 214.56 190.3 261.8
+       Q 190.3 273.5 182 271.8
+       Q 107.19999999999999 273.5 42 270.1
+       Q 30.3 270.1 32 261.8
+       Q 33.7 200.56799999999998 30.3 154.6
+       Q 30.3 142.9 42 146.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 42 143.29999999999998 Q 115.2 145.9 182 143.29999999999998
+       Q 190.7 143.29999999999998 192 154.6
+       Q 190.7 214.56 193.3 261.8
+       Q 193.3 270.5 182 271.8
+       Q 107.19999999999999 270.5 42 273.1
+       Q 33.3 273.1 32 261.8
+       Q 30.7 200.56799999999998 33.3 154.6
+       Q 33.3 145.9 42 143.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="124" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="182.6">WorkerProc</tspan></text><text data-wrap-width="124" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="219.6">发送回包</tspan></text><path d="M 538 146.29999999999998 Q 607.04 142.9 670 146.29999999999998
+       Q 681.7 146.29999999999998 680 154.6
+       Q 681.7 214.56 678.3 261.8
+       Q 678.3 273.5 670 271.8
+       Q 599.44 273.5 538 270.1
+       Q 526.3 270.1 528 261.8
+       Q 529.7 200.56799999999998 526.3 154.6
+       Q 526.3 142.9 538 146.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 538 143.29999999999998 Q 607.04 145.9 670 143.29999999999998
+       Q 678.7 143.29999999999998 680 154.6
+       Q 678.7 214.56 681.3 261.8
+       Q 681.3 270.5 670 271.8
+       Q 599.44 270.5 538 273.1
+       Q 529.3 273.1 528 261.8
+       Q 526.7 200.56799999999998 529.3 154.6
+       Q 529.3 145.9 538 143.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="116" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="546" y="182.6">EngineCore</tspan></text><text data-wrap-width="116" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="546" y="219.6">转交结果</tspan></text><path d="M 718 146.29999999999998 Q 822.4 142.9 918 146.29999999999998
+       Q 929.7 146.29999999999998 928 154.6
+       Q 929.7 214.56 926.3 261.8
+       Q 926.3 273.5 918 271.8
+       Q 811.4 273.5 718 270.1
+       Q 706.3 270.1 708 261.8
+       Q 709.7 200.56799999999998 706.3 154.6
+       Q 706.3 142.9 718 146.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 718 143.29999999999998 Q 822.4 145.9 918 143.29999999999998
+       Q 926.7 143.29999999999998 928 154.6
+       Q 926.7 214.56 929.3 261.8
+       Q 929.3 270.5 918 271.8
+       Q 811.4 270.5 718 273.1
+       Q 709.3 273.1 708 261.8
+       Q 706.7 200.56799999999998 709.3 154.6
+       Q 709.3 145.9 718 143.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="184" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="726" y="182.6">Scheduler</tspan></text><text data-wrap-width="184" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="726" y="219.6">更新请求状态</tspan></text><text data-wrap-width="72" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="229" y="197.2">响应队列</tspan></text><defs><marker id="a1472" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M192 208.2 Q229 211.2 266 208.2" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1472)"/><defs><marker id="a1473" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M502 208.2 Q515 210.79999999999998 528 208.2" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1473)"/><defs><marker id="a1474" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M680 208.2 Q694 211 708 208.2" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1474)"/></svg>

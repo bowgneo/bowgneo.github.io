@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="464" viewBox="0 0 960 464" role="img"><title>32-layer-save-sketch</title><rect width="960" height="464" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">等 NPU 到达事件，再发起 PUT</tspan></text><text data-wrap-width="896" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="32" y="92.6">AscendStore layerwise · 本层 KV 要保存</tspan></text><path d="M 55 132.39999999999998 Q 242.6 129 415 132.39999999999998
+       Q 426.7 132.39999999999998 425 140.7
+       Q 426.7 200.66 423.3 247.89999999999998
+       Q 423.3 259.59999999999997 415 257.9
+       Q 223.6 259.59999999999997 55 256.2
+       Q 43.3 256.2 45 247.89999999999998
+       Q 46.7 186.668 43.3 140.7
+       Q 43.3 129 55 132.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 55 129.39999999999998 Q 242.6 132 415 129.39999999999998
+       Q 423.7 129.39999999999998 425 140.7
+       Q 423.7 200.66 426.3 247.89999999999998
+       Q 426.3 256.59999999999997 415 257.9
+       Q 223.6 256.59999999999997 55 259.2
+       Q 46.3 259.2 45 247.89999999999998
+       Q 43.7 186.668 46.3 140.7
+       Q 46.3 132 55 129.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="63" y="168.7">模型线程</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="63" y="205.7">save_kv_layer() 调用 record()</tspan><tspan x="63" y="231.79999999999998">向当前 NPU 流排入事件</tspan></text><path d="M 545 132.39999999999998 Q 732.6 129 905 132.39999999999998
+       Q 916.7 132.39999999999998 915 140.7
+       Q 916.7 200.66 913.3 247.89999999999998
+       Q 913.3 259.59999999999997 905 257.9
+       Q 713.6 259.59999999999997 545 256.2
+       Q 533.3 256.2 535 247.89999999999998
+       Q 536.7 186.668 533.3 140.7
+       Q 533.3 129 545 132.39999999999998 Z" fill="#fcf6ec" stroke="#aa7638" stroke-width="1.6"/>
+       <path d="M 545 129.39999999999998 Q 732.6 132 905 129.39999999999998
+       Q 913.7 129.39999999999998 915 140.7
+       Q 913.7 200.66 916.3 247.89999999999998
+       Q 916.3 256.59999999999997 905 257.9
+       Q 713.6 256.59999999999997 545 259.2
+       Q 536.3 259.2 535 247.89999999999998
+       Q 533.7 186.668 536.3 140.7
+       Q 536.3 132 545 129.39999999999998 Z" fill="none" stroke="#aa7638" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="553" y="168.7">发送线程</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="553" y="205.7">收到任务后调用 synchronize()</tspan><tspan x="553" y="231.79999999999998">等待这个设备事件</tspan></text><text data-wrap-width="96" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="180.29999999999998">保存任务</tspan></text><defs><marker id="a1428" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M425 194.29999999999998 Q480 197.29999999999998 535 194.29999999999998" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1428)"/><path d="M 55 305.59999999999997 Q 242.6 302.2 415 305.59999999999997
+       Q 426.7 305.59999999999997 425 313.9
+       Q 426.7 373.86 423.3 421.09999999999997
+       Q 423.3 432.79999999999995 415 431.09999999999997
+       Q 223.6 432.79999999999995 55 429.4
+       Q 43.3 429.4 45 421.09999999999997
+       Q 46.7 359.868 43.3 313.9
+       Q 43.3 302.2 55 305.59999999999997 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 55 302.59999999999997 Q 242.6 305.2 415 302.59999999999997
+       Q 423.7 302.59999999999997 425 313.9
+       Q 423.7 373.86 426.3 421.09999999999997
+       Q 426.3 429.79999999999995 415 431.09999999999997
+       Q 223.6 429.79999999999995 55 432.4
+       Q 46.3 432.4 45 421.09999999999997
+       Q 43.7 359.868 46.3 313.9
+       Q 46.3 305.2 55 302.59999999999997 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="63" y="341.9">NPU 计算流</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="63" y="378.9">此前提交的设备工作完成</tspan><tspan x="63" y="405">流到达 event</tspan></text><path d="M 545 305.59999999999997 Q 732.6 302.2 905 305.59999999999997
+       Q 916.7 305.59999999999997 915 313.9
+       Q 916.7 373.86 913.3 421.09999999999997
+       Q 913.3 432.79999999999995 905 431.09999999999997
+       Q 713.6 432.79999999999995 545 429.4
+       Q 533.3 429.4 535 421.09999999999997
+       Q 536.7 359.868 533.3 313.9
+       Q 533.3 302.2 545 305.59999999999997 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 545 302.59999999999997 Q 732.6 305.2 905 302.59999999999997
+       Q 913.7 302.59999999999997 915 313.9
+       Q 913.7 373.86 916.3 421.09999999999997
+       Q 916.3 429.79999999999995 905 431.09999999999997
+       Q 713.6 429.79999999999995 545 432.4
+       Q 536.3 432.4 535 421.09999999999997
+       Q 533.7 359.868 536.3 313.9
+       Q 536.3 305.2 545 302.59999999999997 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="553" y="341.9">发送线程发起 PUT</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="553" y="378.9">等待解除，读取设备上的 KV</tspan></text><defs><marker id="a1435" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M235 257.9 Q232 280.9 235 303.9" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1435)"/><defs><marker id="a1436" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M725 257.9 Q722 280.9 725 303.9" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1436)"/><defs><marker id="a1437" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#aa7638"/></marker></defs><path d="M425 367.5 Q480 370.5 535 367.5" stroke="#aa7638" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1437)"/></svg>

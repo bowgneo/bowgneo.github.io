@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="635" viewBox="0 0 960 635" role="img"><title>31-layer-load-sketch</title><rect width="960" height="635" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">等 KV 到位，再提交 attention</tspan></text><text data-wrap-width="896" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="32" y="92.6">AscendStore layerwise · 本层有 KV 待加载</tspan></text><path d="M 55 132.39999999999998 Q 242.6 129 415 132.39999999999998
+       Q 426.7 132.39999999999998 425 140.7
+       Q 426.7 166.45 423.3 185.7
+       Q 423.3 197.39999999999998 415 195.7
+       Q 223.6 197.39999999999998 55 194
+       Q 43.3 194 45 185.7
+       Q 46.7 159.29999999999998 43.3 140.7
+       Q 43.3 129 55 132.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 55 129.39999999999998 Q 242.6 132 415 129.39999999999998
+       Q 423.7 129.39999999999998 425 140.7
+       Q 423.7 166.45 426.3 185.7
+       Q 426.3 194.39999999999998 415 195.7
+       Q 223.6 194.39999999999998 55 197
+       Q 46.3 197 45 185.7
+       Q 43.7 159.29999999999998 46.3 140.7
+       Q 46.3 132 55 129.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="63" y="168.7">模型线程</tspan></text><path d="M 545 132.39999999999998 Q 732.6 129 905 132.39999999999998
+       Q 916.7 132.39999999999998 915 140.7
+       Q 916.7 166.45 913.3 185.7
+       Q 913.3 197.39999999999998 905 195.7
+       Q 713.6 197.39999999999998 545 194
+       Q 533.3 194 535 185.7
+       Q 536.7 159.29999999999998 533.3 140.7
+       Q 533.3 129 545 132.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 545 129.39999999999998 Q 732.6 132 905 129.39999999999998
+       Q 913.7 129.39999999999998 915 140.7
+       Q 913.7 166.45 916.3 185.7
+       Q 916.3 194.39999999999998 905 195.7
+       Q 713.6 194.39999999999998 545 197
+       Q 536.3 197 535 185.7
+       Q 533.7 159.29999999999998 536.3 140.7
+       Q 536.3 132 545 129.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="553" y="168.7">接收线程</tspan></text><path d="M 55 225.39999999999998 Q 242.6 222 415 225.39999999999998
+       Q 426.7 225.39999999999998 425 233.7
+       Q 426.7 279.305 423.3 314.79999999999995
+       Q 423.3 326.49999999999994 415 324.79999999999995
+       Q 223.6 326.49999999999994 55 323.09999999999997
+       Q 43.3 323.09999999999997 45 314.79999999999995
+       Q 46.7 268.18399999999997 43.3 233.7
+       Q 43.3 222 55 225.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 55 222.39999999999998 Q 242.6 225 415 222.39999999999998
+       Q 423.7 222.39999999999998 425 233.7
+       Q 423.7 279.305 426.3 314.79999999999995
+       Q 426.3 323.49999999999994 415 324.79999999999995
+       Q 223.6 323.49999999999994 55 326.09999999999997
+       Q 46.3 326.09999999999997 45 314.79999999999995
+       Q 43.7 268.18399999999997 46.3 233.7
+       Q 46.3 225 55 222.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="63" y="261.7">wait_for_layer_load()</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="63" y="298.7">提交待加载任务</tspan></text><path d="M 545 225.39999999999998 Q 732.6 222 905 225.39999999999998
+       Q 916.7 225.39999999999998 915 233.7
+       Q 916.7 279.305 913.3 314.79999999999995
+       Q 913.3 326.49999999999994 905 324.79999999999995
+       Q 713.6 326.49999999999994 545 323.09999999999997
+       Q 533.3 323.09999999999997 535 314.79999999999995
+       Q 536.7 268.18399999999997 533.3 233.7
+       Q 533.3 222 545 225.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 545 222.39999999999998 Q 732.6 225 905 222.39999999999998
+       Q 913.7 222.39999999999998 915 233.7
+       Q 913.7 279.305 916.3 314.79999999999995
+       Q 916.3 323.49999999999994 905 324.79999999999995
+       Q 713.6 323.49999999999994 545 326.09999999999997
+       Q 536.3 326.09999999999997 535 314.79999999999995
+       Q 533.7 268.18399999999997 536.3 233.7
+       Q 536.3 225 545 222.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="553" y="261.7">执行 GET</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="553" y="298.7">将 KV 搬进本地 NPU 缓存</tspan></text><defs><marker id="a1400" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M425 274.25 Q480 277.25 535 274.25" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1400)"/><path d="M 55 358.49999999999994 Q 242.6 355.09999999999997 415 358.49999999999994
+       Q 426.7 358.49999999999994 425 366.79999999999995
+       Q 426.7 412.405 423.3 447.9
+       Q 423.3 459.59999999999997 415 457.9
+       Q 223.6 459.59999999999997 55 456.2
+       Q 43.3 456.2 45 447.9
+       Q 46.7 401.28399999999993 43.3 366.79999999999995
+       Q 43.3 355.09999999999997 55 358.49999999999994 Z" fill="#fcf6ec" stroke="#aa7638" stroke-width="1.6"/>
+       <path d="M 55 355.49999999999994 Q 242.6 358.09999999999997 415 355.49999999999994
+       Q 423.7 355.49999999999994 425 366.79999999999995
+       Q 423.7 412.405 426.3 447.9
+       Q 426.3 456.59999999999997 415 457.9
+       Q 223.6 456.59999999999997 55 459.2
+       Q 46.3 459.2 45 447.9
+       Q 43.7 401.28399999999993 46.3 366.79999999999995
+       Q 46.3 358.09999999999997 55 355.49999999999994 Z" fill="none" stroke="#aa7638" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="63" y="394.79999999999995">threading.Event.wait()</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="63" y="431.79999999999995">模型线程等 KV 到位</tspan></text><path d="M 545 358.49999999999994 Q 732.6 355.09999999999997 905 358.49999999999994
+       Q 916.7 358.49999999999994 915 366.79999999999995
+       Q 916.7 412.405 913.3 447.9
+       Q 913.3 459.59999999999997 905 457.9
+       Q 713.6 459.59999999999997 545 456.2
+       Q 533.3 456.2 535 447.9
+       Q 536.7 401.28399999999993 533.3 366.79999999999995
+       Q 533.3 355.09999999999997 545 358.49999999999994 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 545 355.49999999999994 Q 732.6 358.09999999999997 905 355.49999999999994
+       Q 913.7 355.49999999999994 915 366.79999999999995
+       Q 913.7 412.405 916.3 447.9
+       Q 916.3 456.59999999999997 905 457.9
+       Q 713.6 456.59999999999997 545 459.2
+       Q 536.3 459.2 535 447.9
+       Q 533.7 401.28399999999993 536.3 366.79999999999995
+       Q 536.3 358.09999999999997 545 355.49999999999994 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="553" y="394.79999999999995">threading.Event.set()</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="553" y="431.79999999999995">GET 返回后通知模型线程</tspan></text><defs><marker id="a1407" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M235 324.79999999999995 Q232 340.79999999999995 235 356.79999999999995" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1407)"/><defs><marker id="a1408" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M725 324.79999999999995 Q722 340.79999999999995 725 356.79999999999995" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1408)"/><text data-wrap-width="88" fill="#aa7638" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="393.34999999999997">唤醒</tspan></text><defs><marker id="a1410" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#aa7638"/></marker></defs><path d="M535 407.34999999999997 Q480 404.34999999999997 425 407.34999999999997" stroke="#aa7638" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a1410)"/><path d="M 55 503.59999999999997 Q 242.6 500.2 415 503.59999999999997
+       Q 426.7 503.59999999999997 425 511.9
+       Q 426.7 557.505 423.3 593
+       Q 423.3 604.7 415 603
+       Q 223.6 604.7 55 601.3
+       Q 43.3 601.3 45 593
+       Q 46.7 546.384 43.3 511.9
+       Q 43.3 500.2 55 503.59999999999997 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 55 500.59999999999997 Q 242.6 503.2 415 500.59999999999997
+       Q 423.7 500.59999999999997 425 511.9
+       Q 423.7 557.505 426.3 593
+       Q 426.3 601.7 415 603
+       Q 223.6 601.7 55 604.3
+       Q 46.3 604.3 45 593
+       Q 43.7 546.384 46.3 511.9
+       Q 46.3 503.2 55 500.59999999999997 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="63" y="539.9">调用 attention 后端</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="63" y="576.9">KV 就绪后提交算子</tspan></text><path d="M 545 503.59999999999997 Q 732.6 500.2 905 503.59999999999997
+       Q 916.7 503.59999999999997 915 511.9
+       Q 916.7 557.505 913.3 593
+       Q 913.3 604.7 905 603
+       Q 713.6 604.7 545 601.3
+       Q 533.3 601.3 535 593
+       Q 536.7 546.384 533.3 511.9
+       Q 533.3 500.2 545 503.59999999999997 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 545 500.59999999999997 Q 732.6 503.2 905 500.59999999999997
+       Q 913.7 500.59999999999997 915 511.9
+       Q 913.7 557.505 916.3 593
+       Q 916.3 601.7 905 603
+       Q 713.6 601.7 545 604.3
+       Q 536.3 604.3 535 593
+       Q 533.7 546.384 536.3 511.9
+       Q 536.3 503.2 545 500.59999999999997 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="344" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="553" y="539.9">NPU 计算流</tspan></text><text data-wrap-width="344" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="553" y="576.9">执行 attention，读取已到位的 KV</tspan></text><defs><marker id="a1417" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M235 457.9 Q232 479.9 235 501.9" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1417)"/><defs><marker id="a1418" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M425 552.4499999999999 Q480 555.4499999999999 535 552.4499999999999" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1418)"/></svg>

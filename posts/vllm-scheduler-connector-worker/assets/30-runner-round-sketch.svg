@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="533" viewBox="0 0 960 533" role="img"><title>30-runner-round-sketch</title><rect width="960" height="533" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">Model Runner V2 的 Python 调用顺序</tspan></text><text data-wrap-width="896" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="32" y="114.6">execute_model()</tspan></text><defs><marker id="a1363" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M32 133.6 Q480 136.6 928 133.6" stroke="#718396" fill="none" stroke-width="1.5"/><path d="M 45 155.29999999999998 Q 173.32 151.9 291 155.29999999999998
+       Q 302.7 155.29999999999998 301 163.6
+       Q 302.7 223.56 299.3 270.8
+       Q 299.3 282.5 291 280.8
+       Q 160.01999999999998 282.5 45 279.1
+       Q 33.3 279.1 35 270.8
+       Q 36.7 209.56799999999998 33.3 163.6
+       Q 33.3 151.9 45 155.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 45 152.29999999999998 Q 173.32 154.9 291 152.29999999999998
+       Q 299.7 152.29999999999998 301 163.6
+       Q 299.7 223.56 302.3 270.8
+       Q 302.3 279.5 291 280.8
+       Q 160.01999999999998 279.5 45 282.1
+       Q 36.3 282.1 35 270.8
+       Q 33.7 209.56799999999998 36.3 163.6
+       Q 36.3 154.9 45 152.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="230" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="53" y="191.6">pre_forward()</tspan></text><text data-wrap-width="230" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="53" y="228.6">绑定传输计划</tspan><tspan x="53" y="254.7">按需调用加载入口</tspan></text><path d="M 357 155.29999999999998 Q 485.32 151.9 603 155.29999999999998
+       Q 614.7 155.29999999999998 613 163.6
+       Q 614.7 223.56 611.3 270.8
+       Q 611.3 282.5 603 280.8
+       Q 472.02 282.5 357 279.1
+       Q 345.3 279.1 347 270.8
+       Q 348.7 209.56799999999998 345.3 163.6
+       Q 345.3 151.9 357 155.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 357 152.29999999999998 Q 485.32 154.9 603 152.29999999999998
+       Q 611.7 152.29999999999998 613 163.6
+       Q 611.7 223.56 614.3 270.8
+       Q 614.3 279.5 603 280.8
+       Q 472.02 279.5 357 282.1
+       Q 348.3 282.1 347 270.8
+       Q 345.7 209.56799999999998 348.3 163.6
+       Q 348.3 154.9 357 152.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="230" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="365" y="191.6">调用模型</tspan></text><text data-wrap-width="230" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="365" y="228.6">层内等待 KV</tspan><tspan x="365" y="254.7">提交 attention 等算子</tspan></text><path d="M 669 155.29999999999998 Q 797.3199999999999 151.9 915 155.29999999999998
+       Q 926.7 155.29999999999998 925 163.6
+       Q 926.7 223.56 923.3 270.8
+       Q 923.3 282.5 915 280.8
+       Q 784.02 282.5 669 279.1
+       Q 657.3 279.1 659 270.8
+       Q 660.7 209.56799999999998 657.3 163.6
+       Q 657.3 151.9 669 155.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 669 152.29999999999998 Q 797.3199999999999 154.9 915 152.29999999999998
+       Q 923.7 152.29999999999998 925 163.6
+       Q 923.7 223.56 926.3 270.8
+       Q 926.3 279.5 915 280.8
+       Q 784.02 279.5 669 282.1
+       Q 660.3 282.1 659 270.8
+       Q 657.7 209.56799999999998 660.3 163.6
+       Q 660.3 154.9 669 152.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="230" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="677" y="191.6">finish_forward()</tspan></text><text data-wrap-width="230" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="677" y="228.6">通知 Connector</tspan><tspan x="677" y="254.7">模型调用已返回</tspan></text><defs><marker id="a1373" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M301 217.2 Q324 220.2 347 217.2" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1373)"/><defs><marker id="a1374" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M613 217.2 Q636 220.2 659 217.2" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1374)"/><text data-wrap-width="896" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="32" y="334.8">execute_model() 返回 None 后，EngineCore 发起 sample_tokens()</tspan></text><defs><marker id="a1376" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M32 353.8 Q480 356.8 928 353.8" stroke="#718396" fill="none" stroke-width="1.5"/><path d="M 45 375.5 Q 173.32 372.1 291 375.5
+       Q 302.7 375.5 301 383.8
+       Q 302.7 443.76 299.3 491
+       Q 299.3 502.7 291 501
+       Q 160.01999999999998 502.7 45 499.3
+       Q 33.3 499.3 35 491
+       Q 36.7 429.76800000000003 33.3 383.8
+       Q 33.3 372.1 45 375.5 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 45 372.5 Q 173.32 375.1 291 372.5
+       Q 299.7 372.5 301 383.8
+       Q 299.7 443.76 302.3 491
+       Q 302.3 499.7 291 501
+       Q 160.01999999999998 499.7 45 502.3
+       Q 36.3 502.3 35 491
+       Q 33.7 429.76800000000003 36.3 383.8
+       Q 36.3 375.1 45 372.5 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="230" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="53" y="411.8">提交采样</tspan></text><text data-wrap-width="230" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="53" y="448.8">使用保存的 hidden states</tspan><tspan x="53" y="474.90000000000003">安排结果拷贝</tspan></text><path d="M 357 375.5 Q 485.32 372.1 603 375.5
+       Q 614.7 375.5 613 383.8
+       Q 614.7 443.76 611.3 491
+       Q 611.3 502.7 603 501
+       Q 472.02 502.7 357 499.3
+       Q 345.3 499.3 347 491
+       Q 348.7 429.76800000000003 345.3 383.8
+       Q 345.3 372.1 357 375.5 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 357 372.5 Q 485.32 375.1 603 372.5
+       Q 611.7 372.5 613 383.8
+       Q 611.7 443.76 614.3 491
+       Q 614.3 499.7 603 501
+       Q 472.02 499.7 357 502.3
+       Q 348.3 502.3 347 491
+       Q 345.7 429.76800000000003 348.3 383.8
+       Q 348.3 375.1 357 372.5 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="230" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="365" y="411.8">post_forward()</tspan></text><text data-wrap-width="230" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="365" y="448.8">按需提交延后加载</tspan><tspan x="365" y="474.90000000000003">收集传输结果</tspan></text><path d="M 669 375.5 Q 797.3199999999999 372.1 915 375.5
+       Q 926.7 375.5 925 383.8
+       Q 926.7 443.76 923.3 491
+       Q 923.3 502.7 915 501
+       Q 784.02 502.7 669 499.3
+       Q 657.3 499.3 659 491
+       Q 660.7 429.76800000000003 657.3 383.8
+       Q 657.3 372.1 669 375.5 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 669 372.5 Q 797.3199999999999 375.1 915 372.5
+       Q 923.7 372.5 925 383.8
+       Q 923.7 443.76 926.3 491
+       Q 926.3 499.7 915 501
+       Q 784.02 499.7 669 502.3
+       Q 660.3 502.3 659 491
+       Q 657.7 429.76800000000003 660.3 383.8
+       Q 660.3 375.1 669 372.5 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="230" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="677" y="411.8">返回 AsyncOutput</tspan></text><text data-wrap-width="230" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="677" y="448.8">包含采样与传输结果</tspan><tspan x="677" y="474.90000000000003">Worker 等拷贝后回包</tspan></text><defs><marker id="a1386" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M301 437.40000000000003 Q324 440.40000000000003 347 437.40000000000003" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1386)"/><defs><marker id="a1387" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M613 437.40000000000003 Q636 440.40000000000003 659 437.40000000000003" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1387)"/></svg>
