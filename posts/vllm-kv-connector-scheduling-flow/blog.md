@@ -2,7 +2,7 @@
 
 基于 vLLM v0.30.0 / vLLM-Ascend v0.30.0
 
-Scheduler 何时调用 Connector？Worker 收到计划后，Model Runner V2 又从哪里启动传输？沿调用顺序看完一轮执行，再看 P/D 如何交接 KV，以及 AscendStore 如何保存前缀。
+Scheduler 查询可复用的 KV，分配本地 blocks。EngineCore 通过 Executor 把执行计划交给 Worker，Model Runner V2 在 Worker 内调用 Connector。后两篇分别讲 Mooncake Pull 的 P/D 交接和 AscendStore 的池化读写。
 
 1. [Scheduler 与 KV Connector](01-scheduler.md)：从一次前缀命中看 blocks 分配、计划派发和结果回写。
 2. [Model Runner V2 的 KV 加载与保存](02-runner-v2.md)：沿一层 attention 看 KV 加载和保存时谁在等待。
