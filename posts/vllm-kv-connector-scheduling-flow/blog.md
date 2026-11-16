@@ -1,4 +1,4 @@
-# 一次请求的调度与 KV 传输
+# vLLM KV Connector 调度流程
 
 基于 vLLM v0.30.0 / vLLM-Ascend v0.30.0
 
