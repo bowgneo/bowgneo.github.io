@@ -1,66 +1,14 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="从 Scheduler 查询池中的前缀，到 Worker 加载并保存 KV。"><title>vLLM 请求调度（4）：AscendStore 的 KV 保存与复用</title><style>
-:root{color-scheme:light;--ink:#24384b;--muted:#677887;--line:#dce4e9;--blue:#265f93;--paper:#fffefa}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.95 -apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",sans-serif}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}header{max-width:820px;margin:auto;padding:28px 28px 18px;display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);font-size:13px}.brand{color:var(--ink);font-weight:650}.series-nav{max-width:820px;margin:26px auto 0;padding:0 28px;font-size:14px}.series-nav ol{margin:0;padding-left:1.5em}.series-nav li{margin:5px 0}.series-nav a{color:var(--muted)}.series-nav a[aria-current=page]{color:var(--blue);font-weight:650}main{min-width:0}.article{max-width:820px;margin:36px auto 0;padding:0 28px}h1{font-size:33px;line-height:1.5;letter-spacing:-.035em;margin:0 0 30px;font-weight:720}h2{font-size:24px;line-height:1.65;margin:50px 0 18px;font-weight:680}h3{font-size:20px;line-height:1.65;margin-top:28px}p{margin:17px 0}strong{font-weight:650}code{font:.84em/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere;background:#edf2f5;border-radius:3px;padding:2px 4px}pre{overflow:auto;background:#edf2f5;border-left:3px solid #b4c9d9;padding:18px 20px;font-size:14px;line-height:1.8}pre code{font-size:inherit;line-height:inherit;background:none;padding:0;overflow-wrap:normal}figure{width:100%;margin:32px 0}figure>a{display:block;border:1px solid var(--line);border-radius:7px;overflow:hidden}figure img{display:block;width:100%;max-width:100%;height:auto}.table-wrap{overflow-x:auto;margin:24px 0}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.7}th,td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--line)}th{background:#edf2f5}ol,ul{padding-left:1.4em}li{margin:9px 0}.article article>ul:last-child{font-size:14px}.pagination{display:flex;justify-content:space-between;gap:25px;border-top:1px solid var(--line);margin-top:40px;padding-top:22px;font-size:14px}.pagination a{max-width:48%}.pagination .next{margin-left:auto;text-align:right}.downloads{margin:28px 0 44px;font-size:13px;color:var(--muted)}.downloads summary{cursor:pointer}.downloads a{display:inline-block;margin:5px 18px 5px 0}.landing{max-width:820px;margin:52px auto 0;padding:0 28px 40px}.landing h1{font-size:39px;margin-bottom:20px}.intro{max-width:740px;color:#52697c;margin-bottom:34px}.cards{padding:0;list-style:none;margin:0}.cards li{margin:0;border-top:1px solid var(--line);padding:30px 0}.chapter-number{font:13px/1.8 ui-monospace,monospace;color:var(--muted);display:block;margin-bottom:7px}.cards h2{font-size:24px;margin:0 0 11px;line-height:1.5}.cards p{font-size:16px;color:#617588;line-height:1.85;margin:0}.thumbnail{display:block;margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden}.thumbnail img{display:block;width:100%;height:auto}
-.chapter-nav{margin:26px 0;padding:14px 18px;border:1px solid var(--line);border-radius:6px;font-size:14px;line-height:1.8}.chapter-nav summary{cursor:pointer;font-weight:600}.chapter-nav ol{margin:12px 0 0;padding-left:1.4em}.chapter-nav li{margin:8px 0}.chapter-nav a{color:var(--muted);overflow-wrap:anywhere}.chapter-nav a:hover,.chapter-nav a:focus-visible{color:var(--blue);text-decoration:underline}
-.version-note{margin:0 0 20px;color:var(--muted);font-size:14px;line-height:1.8}
-@media(min-width:1320px){.article{position:relative}.chapter-nav{position:absolute;left:100%;top:0;bottom:0;width:220px;margin:0;padding:0;border:0;border-radius:0}.chapter-nav details{position:sticky;top:28px;max-height:calc(100vh - 56px);overflow:auto;padding:0 12px 0 20px;border-left:1px solid var(--line)}}
-@media(max-width:650px){body{font-size:16px}header{padding:22px 20px 15px}.series-nav{padding:0 20px;margin-top:20px}.article{padding:0 20px;margin-top:29px}h1{font-size:27px}h2{font-size:22px;margin-top:38px}figure{margin:26px 0}pre{font-size:12px;padding:14px}.landing{margin-top:34px;padding:0 20px 30px}.landing h1{font-size:31px}.cards li{padding:26px 0}.cards h2{font-size:23px}.pagination{font-size:13px;gap:18px}}
-@media print{header,.series-nav,.chapter-nav,.pagination,.downloads{display:none}.article{max-width:none;margin:0;padding:0}body{font-size:10pt}h2{break-after:avoid}figure{width:100%;margin:20px 0;break-inside:avoid}}
-</style><link rel="canonical" href="https://bowgneo.github.io/posts/vllm-kv-transfer/04-save-and-reuse.html"><link rel="icon" href="../../favicon.svg" type="image/svg+xml"></head><body><header><nav aria-label="站点导航"><a class="brand" href="../../">grant</a> <span aria-hidden="true">/</span> <a href="./">系列目录</a></nav><a href="04-save-and-reuse.md" download>下载 Markdown</a></header><nav class="series-nav" aria-label="系列文章"><ol><li><a href="01-scheduler.html">Scheduler 与 KV Connector</a></li><li><a href="02-runner-v2.html">Model Runner V2 的 KV 加载与保存</a></li><li><a href="03-async-load.html">P/D 分离中的 KV 交接</a></li><li><a href="04-save-and-reuse.html" aria-current="page">AscendStore 的 KV 保存与复用</a></li></ol></nav><main class="article"><article><h1>vLLM 请求调度（四）：AscendStore 的 KV 保存与复用</h1><aside class="chapter-nav"><details open><summary>章节导航</summary><nav aria-label="本篇章节"><ol><li><a href="#section-1">get_num_new_matched_tokens：Scheduler 查询前缀</a></li><li><a href="#section-2">start_load_kv：Worker 加载命中的 KV</a></li><li><a href="#section-3">wait_for_save：Worker 保存 KV</a></li></ol></nav></details></aside>
-<p>这一节讨论 AscendStore 池化的非逐层模式（<code>use_layerwise=False</code>）。假设共享池里已有一段前缀 KV。Scheduler 先查能复用多少，Worker 再把命中的 KV 读入 NPU，执行 forward 后保存本轮可复用的 KV。下面以同步加载（<code>load_async=False</code>）为例。</p>
-<h2 id="section-1">get_num_new_matched_tokens：Scheduler 查询前缀</h2>
-<figure><a href="assets/38-ascend-store-sketch.svg?v=e1799048a291" target="_blank" aria-label="放大查看：EngineCore 进程内，Scheduler 先查本地前缀，再由调度侧 AscendStore 查询共享池，分配 blocks 后生成 metadata"><img src="assets/38-ascend-store-sketch.svg?v=e1799048a291" alt="EngineCore 进程内，Scheduler 先查本地前缀，再由调度侧 AscendStore 查询共享池，分配 blocks 后生成 metadata" loading="lazy"></a></figure>
-<p>Scheduler 先通过 <code>KVCacheManager</code> 查本地前缀，再把本地命中的 token 数传给调度侧 Connector。AscendStore 用请求的 <code>block_hashes</code> 查询共享池，返回<strong>本地命中之外</strong>还可以加载多少 token。 <a href="https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/core/sched/scheduler.py#L528-L538"><code>Scheduler._get_local_prefix_cache_hit(request)</code></a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py#L614-L740"><code>KVPoolScheduler.get_num_new_matched_tokens(request, num_computed_tokens)</code></a></p>
-<p>池里命中的 KV 需要有地方写入。Scheduler 通过 <code>allocate_slots()</code> 分配本地 blocks，成功后才调用 <code>update_state_after_alloc()</code>，把这些 blocks 告诉 Connector。调度侧 Connector 最后用 <code>build_connector_meta()</code> 汇总本轮的加载和保存信息。 <a href="https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/core/sched/scheduler.py#L1158-L1191"><code>Scheduler.schedule(throttle_prefills)</code></a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py#L1020-L1094"><code>KVPoolScheduler.build_connector_meta(scheduler_output)</code></a></p>
-<h2 id="section-2">start_load_kv：Worker 加载命中的 KV</h2>
-<figure><a href="assets/40-ascend-store-load-sketch.svg?v=d81372bf201b" target="_blank" aria-label="放大查看：Executor 跨进程将计划派给 NPUWorker，Model Runner V2 绑定 metadata，Worker 侧 Connector 执行同步 GET"><img src="assets/40-ascend-store-load-sketch.svg?v=d81372bf201b" alt="Executor 跨进程将计划派给 NPUWorker，Model Runner V2 绑定 metadata，Worker 侧 Connector 执行同步 GET" loading="lazy"></a></figure>
-<p>多进程执行时，EngineCore 把 <code>SchedulerOutput</code> 交给 <code>MultiprocExecutor</code>。Executor 通过 RPC 把计划发给 <code>NPUWorker</code>，Worker 再调用本进程里的 Model Runner V2。<a href="https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/engine/core.py#L596-L602"><code>EngineCore.step()</code></a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/worker/worker.py#L774-L808"><code>NPUWorker.execute_model(scheduler_output)</code></a></p>
-<p>前面生成的 metadata 就在 <code>SchedulerOutput.kv_connector_metadata</code> 里。其中的 <code>connector_metadata.requests</code> 是请求元数据列表，每条 <code>ReqMeta</code> 带着请求 ID、本地 block IDs 和加载、保存信息。 <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py#L998-L1014"><code>ReqMeta</code></a></p>
-<pre><code class="language-python">class ReqMeta:
-    req_id: str
-    save_end_token: int
-    # ...
-    block_ids_by_group: list[list[int]]
-    # ...
-    save_start_token: int = 0
-    can_save: bool | None = None
-    load_spec: LoadSpec | None = None
-</code></pre>
-<p><code>ActiveKVConnector.pre_forward()</code> 先绑定 metadata。因为这轮有同步加载（<code>has_sync_kv_loads=True</code>），它在 forward 前调用 Worker 侧 Connector 的 <code>start_load_kv()</code>。后端用 GET 把 KV 写进 Scheduler 分配好的本地 blocks。加载成功后，forward 可以直接读取这段前缀。 <a href="https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/worker/gpu/kv_connector.py#L66-L91"><code>ActiveKVConnector.pre_forward(scheduler_output, **kwargs)</code></a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_worker.py#L1381-L1498"><code>KVPoolWorker.start_load_kv(metadata)</code></a></p>
-<h2 id="section-3">wait_for_save：Worker 保存 KV</h2>
-<p>本轮新算出的 KV 也可以存回共享池。Model Runner V2 在采样收尾时调用 <code>ActiveKVConnector.post_forward()</code>，Worker 侧的 <code>wait_for_save()</code> 在这里提交保存任务。 <a href="https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/worker/gpu/kv_connector.py#L100-L113"><code>ActiveKVConnector.post_forward(finished_req_ids, wait_for_save=True)</code></a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/ascend_store_connector.py#L407-L416"><code>AscendStoreConnector.wait_for_save()</code></a></p>
-<figure><a href="assets/12-save-event.svg?v=b4041c3fea88" target="_blank" aria-label="放大查看：模型线程提交保存任务后等待发送队列，后台线程先等 NPU 写完 KV 再执行 PUT"><img src="assets/12-save-event.svg?v=b4041c3fea88" alt="模型线程提交保存任务后等待发送队列，后台线程先等 NPU 写完 KV 再执行 PUT" loading="lazy"></a></figure>
-<p>发送线程拿到任务时，NPU 可能还在写这一轮的 KV。模型线程在计算流上记录一个 event，流执行完这些写入才会到达它。同一轮的保存任务共用这个 event。 <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_worker.py#L3283-L3307"><code>KVPoolWorker.wait_for_save(connector_metadata)</code></a></p>
-<pre><code class="language-python">current_event = None
-# ...
-send_thread = self.kv_send_thread
-requests: list[ReqMeta] = []
-
-for request in connector_metadata.requests:
-    can_save = request.can_save
-    if can_save is None or not can_save:
-        continue
-    if current_event is None:
-        current_event = torch.npu.Event()
-        current_event.record()
-    # ...
-    request.current_event = current_event
-    requests.append(request)
-
-# ...
-if requests:
-    self._previous_save_batch = send_thread.add_save_batch(requests)
-send_thread.request_queue.join()
-</code></pre>
-<p>发送线程等 NPU 执行到这个 event，再从设备 blocks 读出 KV，写入共享存储。 <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/kv_transfer.py#L1229-L1232"><code>KVCacheStoreSendingThread._handle_stored_request(req_meta)</code></a></p>
-<pre><code class="language-python">if current_event is not None:
-    current_event.synchronize()
-if self.m_store.put(keys, addrs, sizes) is False:
-    return
-</code></pre>
-<p>一项保存任务处理完，发送线程就在 <code>_handle_request()</code> 的 <code>finally</code> 中调用 <code>task_done()</code>。队列里的任务全部处理完后，模型线程的 <code>request_queue.join()</code> 才返回。 <a href="https://github.com/vllm-project/vllm-ascend/blob/0d2c9f7cea2d1c9ea8a5bf83a9fd1508abe416aa/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/kv_transfer.py#L1046-L1064"><code>KVCacheStoreSendingThread._handle_request(req_meta)</code></a></p>
-<h3>为什么要调用 <code>request_queue.join()</code></h3>
-<p>PUT 直接从设备 blocks 读取 KV。假如本轮要保存 block 12，后续 forward 却先把新 KV 写进同一个 block，发送线程就可能把新 KV 存到旧前缀的 key 下。这就是模型线程要等保存队列处理完的原因。</p>
-<figure><a href="assets/39-ascend-store-reuse-blocks-sketch.svg?v=3b3397c05529" target="_blank" aria-label="放大查看：当前轮的 PUT 结束后，后续 forward 才能覆写 block 12"><img src="assets/39-ascend-store-reuse-blocks-sketch.svg?v=3b3397c05529" alt="当前轮的 PUT 结束后，后续 forward 才能覆写 block 12" loading="lazy"></a></figure>
-</article><nav class="pagination" aria-label="上下篇"><a href="03-async-load.html">← 上一篇<br>P/D 分离中的 KV 交接</a><a class="next" href="index.html">返回系列目录 →</a></nav><details class="downloads"><summary>配图源文件 · Excalidraw</summary><p>下载后在 <a href="https://excalidraw.com/">Excalidraw</a> 中打开。</p><a href="assets/38-ascend-store-sketch.excalidraw" download>图 1 · EngineCore 进程内，Scheduler 先查本地前缀，再由调度侧 AscendStore 查询共享池，分配 blocks 后生成 metadata</a><a href="assets/40-ascend-store-load-sketch.excalidraw" download>图 2 · Executor 跨进程将计划派给 NPUWorker，Model Runner V2 绑定 metadata，Worker 侧 Connector 执行同步 GET</a><a href="assets/12-save-event.excalidraw" download>图 3 · 模型线程提交保存任务后等待发送队列，后台线程先等 NPU 写完 KV 再执行 PUT</a><a href="assets/39-ascend-store-reuse-blocks-sketch.excalidraw" download>图 4 · 当前轮的 PUT 结束后，后续 forward 才能覆写 block 12</a></details></main></body></html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>一次请求的调度与 KV 传输</title>
+  <link rel="canonical" href="https://bowgneo.github.io/posts/vllm-kv-connector-scheduling-flow/04-save-and-reuse.html">
+  <meta http-equiv="refresh" content="0; url=../vllm-kv-connector-scheduling-flow/04-save-and-reuse.html">
+  <script>location.replace("../vllm-kv-connector-scheduling-flow/04-save-and-reuse.html" + location.search + location.hash);</script>
+</head>
+<body>
+  <p><a href="../vllm-kv-connector-scheduling-flow/04-save-and-reuse.html">前往新地址</a></p>
+</body>
+</html>
