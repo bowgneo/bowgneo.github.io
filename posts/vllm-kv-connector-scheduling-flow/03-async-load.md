@@ -7,13 +7,13 @@ date: 2026-10-27
 
 以 `MooncakePullConnector` 为例，D 端 Worker 向 P 发起 READ，把 KV 读入本地 blocks。[`MooncakePullConnector`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/connector.py#L237-L251)
 
-proxy 先复制原请求的 payload，在副本中把 `max_tokens`、`min_tokens` 改为 `1`，再发给 P。P 算完 prompt 并生成首个 token 后，proxy 把返回的 `kv_transfer_params` 随请求转给 D。D 的接收线程据此找到 P 的源 blocks。接收结束后，D 的调度侧 Connector 再通知 P 归还这些 blocks。
+P 端算完 prompt 后，proxy 把 `kv_transfer_params` 随请求转给 D。D 的接收线程据此找到 P 的源 blocks。接收结束后，D 的调度侧 Connector 再通知 P 归还这些 blocks。
 
 ![proxy 转交请求与参数，D Worker 从 P 读取 KV，D 的调度侧 Connector 再通知 P](assets/13-pd-handoff.svg)
 
 ## request_finished_all_groups：P 端留下源 blocks
 
-proxy 通过 `build_prefill_request()` 为 P 设置生成参数，并在 `kv_transfer_params` 中写入 `do_remote_decode=True`、`do_remote_prefill=False`。如果原请求带有 `max_completion_tokens`，它也会被设为 `1`。[`build_prefill_request(req_data)`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py#L819-L835)
+proxy 将发给 P 的请求 payload 中的 `max_tokens` 改为 `1`。P 生成首个 token 后达到长度上限，Scheduler 调用 `request_finished_all_groups()`。[`build_prefill_request(req_data)`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py#L819-L835)
 
 ```python
 payload = req_data.copy()
@@ -21,11 +21,9 @@ payload = req_data.copy()
 payload["stream"] = False
 payload["max_tokens"] = 1
 payload["min_tokens"] = 1
-if "max_completion_tokens" in payload:
-    payload["max_completion_tokens"] = 1
 ```
 
-发给 D 的请求保留原始的生成长度和流式参数。P 生成首个 token 后达到长度上限，Scheduler 调用 `request_finished_all_groups()`，将各缓存组的 block IDs 交给 `MooncakePullConnectorScheduler.request_finished()`。[`build_prefill_request(req_data)`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py#L819-L835) · [`MooncakeBaseConnector.request_finished_all_groups()`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/connector.py#L146-L152)
+这个接口将各缓存组的 block IDs 交给 `MooncakePullConnectorScheduler.request_finished()`。[`MooncakeBaseConnector.request_finished_all_groups()`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/connector.py#L146-L152)
 
 有源 blocks 待交接时，Connector 返回 `delay_free_blocks=True`。Scheduler 先保留这些 blocks，并把下面的参数作为 `kv_transfer_params` 交给 proxy。`remote_block_ids` 指出 D 要读哪些块，`remote_request_id` 让 D 在回送确认时能指明 P 端的请求。[`MooncakePullConnectorScheduler.request_finished()`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/pull_scheduler.py#L685-L722) · [proxy 转交 `kv_transfer_params`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py#L972-L975)
 
