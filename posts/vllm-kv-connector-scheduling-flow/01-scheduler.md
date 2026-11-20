@@ -7,10 +7,24 @@ date: 2026-10-28
 
 假设一个请求有 512 个 prompt token。本地已有前 128 个 token 的 KV，外部缓存还能补上接下来的 256 个。即使这轮只需计算最后 128 个 token，Scheduler 也得先给要搬进来的 KV 留出 blocks。还要等数据到位，attention 才能读取它。
 
-![EngineCore 进程内的四个对象，以及 Executor 向 Worker 子进程派发执行的时序](assets/33-engine-step-sketch.svg)
+![新请求经 EngineCore 加入 Scheduler 并通知 Connector，后续 step 再生成执行计划](assets/33-engine-step-sketch.svg)
 
 - **EngineCore 进程**里，`engine` 是一个 `EngineCore` 实例，一轮执行从它的 `step()` 开始。它先调用 Scheduler（`self.scheduler`）生成计划，再通过 Executor（`self.model_executor`）把计划发给 Worker。收到 `ModelRunnerOutput` 后，它把结果交回 Scheduler 更新状态。启用 KV 传输时，Scheduler 会创建调度侧 Connector（`SCHEDULER` 角色），保存在 `self.connector` 中。[EngineCore.step() 源码](https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/engine/core.py#L589-L619) · [EngineCore 初始化](https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/engine/core.py#L133-L170) · [Scheduler 创建 Connector](https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/core/sched/scheduler.py#L140-L159)
 - **Worker 子进程**通过消息队列接收 Executor 发来的 `SchedulerOutput`，其中有本轮的 token 计划、block IDs 和传输计划。执行结果再经 Executor 返回。[跨进程派发源码](https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/executor/multiproc_executor.py#L340-L448) · [第二篇的 Worker 执行路径](02-runner-v2.html)
+
+## add_request：通知 Connector 新请求到达
+
+新请求进入 EngineCore 后，先交给 `Scheduler.add_request()`。Scheduler 把请求加入等待队列、登记到 `self.requests`，随后调用调度侧 Connector 的 `on_new_request(request)`。这发生在第一次 `schedule()` 查询前缀之前。[`EngineCore.add_request(request, request_wave=0)`](https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/engine/core.py#L444-L484) · [`Scheduler.add_request(request)`](https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/v1/core/sched/scheduler.py#L2470-L2494)
+
+```python
+self._enqueue_waiting_request(request)
+self.requests[request.request_id] = request
+# ...
+if self.connector is not None:
+    self.connector.on_new_request(request)
+```
+
+`on_new_request()` 的基类实现直接返回。vLLM-Ascend 的 Mooncake Pull 在 P 端需要裁剪 prompt 时，会在这里先调整 prompt 长度，后续的前缀查询和计算使用调整后的请求。[`KVConnectorBase_V1.on_new_request(request)`](https://github.com/vllm-project/vllm/blob/v0.30.0/vllm/distributed/kv_transfer/kv_connector/v1/base.py#L564-L570) · [`MooncakeBaseScheduler.on_new_request(request)`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/base_scheduler.py#L157-L185)
 
 ## schedule：先查前缀，再分配 blocks
 
