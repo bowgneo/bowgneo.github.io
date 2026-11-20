@@ -23,7 +23,7 @@ payload["max_tokens"] = 1
 payload["min_tokens"] = 1
 ```
 
-这个接口将各缓存组的 block IDs 交给 `MooncakePullConnectorScheduler.request_finished()`。[`MooncakeBaseConnector.request_finished_all_groups()`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/connector.py#L146-L152)
+`request_finished_all_groups()` 内部调用 `MooncakePullConnectorScheduler.request_finished()`。P 端的源 blocks 是否需要保留、返回哪些交接参数，都由 `request_finished()` 决定。[`MooncakeBaseConnector.request_finished_all_groups()`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/connector.py#L146-L152)
 
 有源 blocks 待交接时，Connector 返回 `delay_free_blocks=True`。Scheduler 先保留这些 blocks，并把下面的参数作为 `kv_transfer_params` 交给 proxy。`remote_block_ids` 指出 D 要读哪些块，`remote_request_id` 让 D 在回送确认时能指明 P 端的请求。[`MooncakePullConnectorScheduler.request_finished()`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake/pull_scheduler.py#L685-L722) · [proxy 转交 `kv_transfer_params`](https://github.com/vllm-project/vllm-ascend/blob/v0.30.0/examples/disaggregated_prefill_v1/load_balance_proxy_server_example.py#L972-L975)
 
