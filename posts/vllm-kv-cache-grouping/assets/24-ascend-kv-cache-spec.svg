@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="691" viewBox="0 0 960 691" role="img"><title>24-ascend-kv-cache-spec</title><rect width="960" height="691" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">Ascend 的 KV cache spec</tspan></text><text data-wrap-width="316" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="32" y="112.6">上游 spec</tspan></text><text data-wrap-width="484" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="444" y="112.6">Ascend 子类与缓存用途</tspan></text><path d="M 454 144.29999999999998 Q 695.6800000000001 140.9 918 144.29999999999998
+       Q 929.7 144.29999999999998 928 152.6
+       Q 929.7 198.20499999999998 926.3 233.7
+       Q 926.3 245.39999999999998 918 243.7
+       Q 671.48 245.39999999999998 454 242
+       Q 442.3 242 444 233.7
+       Q 445.7 187.084 442.3 152.6
+       Q 442.3 140.9 454 144.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 454 141.29999999999998 Q 695.6800000000001 143.9 918 141.29999999999998
+       Q 926.7 141.29999999999998 928 152.6
+       Q 926.7 198.20499999999998 929.3 233.7
+       Q 929.3 242.39999999999998 918 243.7
+       Q 671.48 242.39999999999998 454 245
+       Q 445.3 245 444 233.7
+       Q 442.7 187.084 445.3 152.6
+       Q 445.3 143.9 454 141.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="448" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="462" y="180.6">AscendMLAAttentionSpec</tspan></text><text data-wrap-width="448" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="462" y="217.6">主 MLA 缓存 · 压缩 indexer 缓存</tspan></text><path d="M 454 277.4 Q 695.6800000000001 274 918 277.4
+       Q 929.7 277.4 928 285.7
+       Q 929.7 331.305 926.3 366.79999999999995
+       Q 926.3 378.49999999999994 918 376.79999999999995
+       Q 671.48 378.49999999999994 454 375.09999999999997
+       Q 442.3 375.09999999999997 444 366.79999999999995
+       Q 445.7 320.18399999999997 442.3 285.7
+       Q 442.3 274 454 277.4 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 454 274.4 Q 695.6800000000001 277 918 274.4
+       Q 926.7 274.4 928 285.7
+       Q 926.7 331.305 929.3 366.79999999999995
+       Q 929.3 375.49999999999994 918 376.79999999999995
+       Q 671.48 375.49999999999994 454 378.09999999999997
+       Q 445.3 378.09999999999997 444 366.79999999999995
+       Q 442.7 320.18399999999997 445.3 285.7
+       Q 445.3 277 454 274.4 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="448" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="462" y="313.7">AscendSFAIndexerCacheSpec</tspan></text><text data-wrap-width="448" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="462" y="350.7">indexer 的 K 与量化缩放因子</tspan></text><path d="M 42 228.89999999999998 Q 196.32 225.5 338 228.89999999999998
+       Q 349.7 228.89999999999998 348 237.2
+       Q 349.7 262.95 346.3 282.2
+       Q 346.3 293.9 338 292.2
+       Q 180.51999999999998 293.9 42 290.5
+       Q 30.3 290.5 32 282.2
+       Q 33.7 255.79999999999998 30.3 237.2
+       Q 30.3 225.5 42 228.89999999999998 Z" fill="#f6f8fa" stroke="#718396" stroke-width="1.6"/>
+       <path d="M 42 225.89999999999998 Q 196.32 228.5 338 225.89999999999998
+       Q 346.7 225.89999999999998 348 237.2
+       Q 346.7 262.95 349.3 282.2
+       Q 349.3 290.9 338 292.2
+       Q 180.51999999999998 290.9 42 293.5
+       Q 33.3 293.5 32 282.2
+       Q 30.7 255.79999999999998 33.3 237.2
+       Q 33.3 228.5 42 225.89999999999998 Z" fill="none" stroke="#718396" stroke-width=".9" opacity=".48"/><text data-wrap-width="280" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="265.2">MLAAttentionSpec</tspan></text><defs><marker id="a1355" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M348 259.7 Q369 262.7 390 259.7" stroke="#718396" fill="none" stroke-width="1.5"/><defs><marker id="a1356" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M390 193.14999999999998 Q387 259.7 390 326.25" stroke="#718396" fill="none" stroke-width="1.5"/><defs><marker id="a1357" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M390 193.14999999999998 Q413 196.14999999999998 436 193.14999999999998" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1357)"/><defs><marker id="a1358" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M390 326.25 Q413 329.25 436 326.25" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1358)"/><path d="M 454 418.49999999999994 Q 695.6800000000001 415.09999999999997 918 418.49999999999994
+       Q 929.7 418.49999999999994 928 426.79999999999995
+       Q 929.7 472.405 926.3 507.9
+       Q 926.3 519.6 918 517.9
+       Q 671.48 519.6 454 516.1999999999999
+       Q 442.3 516.1999999999999 444 507.9
+       Q 445.7 461.28399999999993 442.3 426.79999999999995
+       Q 442.3 415.09999999999997 454 418.49999999999994 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 454 415.49999999999994 Q 695.6800000000001 418.09999999999997 918 415.49999999999994
+       Q 926.7 415.49999999999994 928 426.79999999999995
+       Q 926.7 472.405 929.3 507.9
+       Q 929.3 516.6 918 517.9
+       Q 671.48 516.6 454 519.1999999999999
+       Q 445.3 519.1999999999999 444 507.9
+       Q 442.7 461.28399999999993 445.3 426.79999999999995
+       Q 445.3 418.09999999999997 454 415.49999999999994 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="448" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="462" y="454.79999999999995">AscendSlidingWindowMLASpec</tspan></text><text data-wrap-width="448" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="462" y="491.79999999999995">SWA 缓存 · compressor state</tspan></text><path d="M 42 436.54999999999995 Q 196.32 433.15 338 436.54999999999995
+       Q 349.7 436.54999999999995 348 444.84999999999997
+       Q 349.7 470.59999999999997 346.3 489.84999999999997
+       Q 346.3 501.54999999999995 338 499.84999999999997
+       Q 180.51999999999998 501.54999999999995 42 498.15
+       Q 30.3 498.15 32 489.84999999999997
+       Q 33.7 463.45 30.3 444.84999999999997
+       Q 30.3 433.15 42 436.54999999999995 Z" fill="#f6f8fa" stroke="#718396" stroke-width="1.6"/>
+       <path d="M 42 433.54999999999995 Q 196.32 436.15 338 433.54999999999995
+       Q 346.7 433.54999999999995 348 444.84999999999997
+       Q 346.7 470.59999999999997 349.3 489.84999999999997
+       Q 349.3 498.54999999999995 338 499.84999999999997
+       Q 180.51999999999998 498.54999999999995 42 501.15
+       Q 33.3 501.15 32 489.84999999999997
+       Q 30.7 463.45 33.3 444.84999999999997
+       Q 33.3 436.15 42 433.54999999999995 Z" fill="none" stroke="#718396" stroke-width=".9" opacity=".48"/><text data-wrap-width="280" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="472.84999999999997">SlidingWindowMLASpec</tspan></text><defs><marker id="a1364" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M348 467.34999999999997 Q392 470.34999999999997 436 467.34999999999997" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1364)"/><path d="M 454 559.6 Q 695.6800000000001 556.1999999999999 918 559.6
+       Q 929.7 559.6 928 567.9
+       Q 929.7 613.505 926.3 649
+       Q 926.3 660.7 918 659
+       Q 671.48 660.7 454 657.3
+       Q 442.3 657.3 444 649
+       Q 445.7 602.384 442.3 567.9
+       Q 442.3 556.1999999999999 454 559.6 Z" fill="#fcf6ec" stroke="#aa7638" stroke-width="1.6"/>
+       <path d="M 454 556.6 Q 695.6800000000001 559.1999999999999 918 556.6
+       Q 926.7 556.6 928 567.9
+       Q 926.7 613.505 929.3 649
+       Q 929.3 657.7 918 659
+       Q 671.48 657.7 454 660.3
+       Q 445.3 660.3 444 649
+       Q 442.7 602.384 445.3 567.9
+       Q 445.3 559.1999999999999 454 556.6 Z" fill="none" stroke="#aa7638" stroke-width=".9" opacity=".48"/><text data-wrap-width="448" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="462" y="595.9">AscendIndexerKPoolTailSpec</tspan></text><text data-wrap-width="448" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="462" y="632.9">indexer 的 tail_cache</tspan></text><path d="M 42 577.65 Q 196.32 574.2499999999999 338 577.65
+       Q 349.7 577.65 348 585.9499999999999
+       Q 349.7 611.6999999999999 346.3 630.9499999999999
+       Q 346.3 642.65 338 640.9499999999999
+       Q 180.51999999999998 642.65 42 639.2499999999999
+       Q 30.3 639.2499999999999 32 630.9499999999999
+       Q 33.7 604.55 30.3 585.9499999999999
+       Q 30.3 574.2499999999999 42 577.65 Z" fill="#f6f8fa" stroke="#718396" stroke-width="1.6"/>
+       <path d="M 42 574.65 Q 196.32 577.2499999999999 338 574.65
+       Q 346.7 574.65 348 585.9499999999999
+       Q 346.7 611.6999999999999 349.3 630.9499999999999
+       Q 349.3 639.65 338 640.9499999999999
+       Q 180.51999999999998 639.65 42 642.2499999999999
+       Q 33.3 642.2499999999999 32 630.9499999999999
+       Q 30.7 604.55 33.3 585.9499999999999
+       Q 33.3 577.2499999999999 42 574.65 Z" fill="none" stroke="#718396" stroke-width=".9" opacity=".48"/><text data-wrap-width="280" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="613.9499999999999">SlidingWindowSpec</tspan></text><defs><marker id="a1370" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#aa7638"/></marker></defs><path d="M348 608.4499999999999 Q392 611.4499999999999 436 608.4499999999999" stroke="#aa7638" fill="none" stroke-width="1.5" marker-end="url(#a1370)"/></svg>

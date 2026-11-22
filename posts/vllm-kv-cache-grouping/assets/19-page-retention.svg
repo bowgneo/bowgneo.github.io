@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="362" viewBox="0 0 960 362" role="img"><title>19-page-retention</title><rect width="960" height="362" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">Full attention 和 SWA 保留哪些 block</tspan></text><text data-wrap-width="160" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="22" font-weight="500"><tspan x="32" y="171.6">Full attention</tspan></text><text data-wrap-width="160" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="22" font-weight="500"><tspan x="32" y="261.6">SWA</tspan></text><text data-wrap-width="164" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="300" y="112.6">逻辑 block 0</tspan></text><path d="M 228 138.29999999999998 Q 303.28 134.9 372 138.29999999999998
+       Q 383.7 138.29999999999998 382 146.6
+       Q 383.7 165.2 380.3 178.6
+       Q 380.3 190.29999999999998 372 188.6
+       Q 295.08 190.29999999999998 228 186.9
+       Q 216.3 186.9 218 178.6
+       Q 219.7 159.48 216.3 146.6
+       Q 216.3 134.9 228 138.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 228 135.29999999999998 Q 303.28 137.9 372 135.29999999999998
+       Q 380.7 135.29999999999998 382 146.6
+       Q 380.7 165.2 383.3 178.6
+       Q 383.3 187.29999999999998 372 188.6
+       Q 295.08 187.29999999999998 228 189.9
+       Q 219.3 189.9 218 178.6
+       Q 216.7 159.48 219.3 146.6
+       Q 219.3 137.9 228 135.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><path d="M 228 228.29999999999998 Q 303.28 224.9 372 228.29999999999998
+       Q 383.7 228.29999999999998 382 236.6
+       Q 383.7 255.2 380.3 268.6
+       Q 380.3 280.3 372 278.6
+       Q 295.08 280.3 228 276.90000000000003
+       Q 216.3 276.90000000000003 218 268.6
+       Q 219.7 249.48 216.3 236.6
+       Q 216.3 224.9 228 228.29999999999998 Z" fill="#ffffff" stroke="#718396" stroke-width="1.6"/>
+       <path d="M 228 225.29999999999998 Q 303.28 227.9 372 225.29999999999998
+       Q 380.7 225.29999999999998 382 236.6
+       Q 380.7 255.2 383.3 268.6
+       Q 383.3 277.3 372 278.6
+       Q 295.08 277.3 228 279.90000000000003
+       Q 219.3 279.90000000000003 218 268.6
+       Q 216.7 249.48 219.3 236.6
+       Q 219.3 227.9 228 225.29999999999998 Z" fill="none" stroke="#718396" stroke-width=".9" opacity=".48"/><text data-wrap-width="164" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="480" y="112.6">逻辑 block 1</tspan></text><path d="M 408 138.29999999999998 Q 483.28 134.9 552 138.29999999999998
+       Q 563.7 138.29999999999998 562 146.6
+       Q 563.7 165.2 560.3 178.6
+       Q 560.3 190.29999999999998 552 188.6
+       Q 475.08 190.29999999999998 408 186.9
+       Q 396.3 186.9 398 178.6
+       Q 399.7 159.48 396.3 146.6
+       Q 396.3 134.9 408 138.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 408 135.29999999999998 Q 483.28 137.9 552 135.29999999999998
+       Q 560.7 135.29999999999998 562 146.6
+       Q 560.7 165.2 563.3 178.6
+       Q 563.3 187.29999999999998 552 188.6
+       Q 475.08 187.29999999999998 408 189.9
+       Q 399.3 189.9 398 178.6
+       Q 396.7 159.48 399.3 146.6
+       Q 399.3 137.9 408 135.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><path d="M 408 228.29999999999998 Q 483.28 224.9 552 228.29999999999998
+       Q 563.7 228.29999999999998 562 236.6
+       Q 563.7 255.2 560.3 268.6
+       Q 560.3 280.3 552 278.6
+       Q 475.08 280.3 408 276.90000000000003
+       Q 396.3 276.90000000000003 398 268.6
+       Q 399.7 249.48 396.3 236.6
+       Q 396.3 224.9 408 228.29999999999998 Z" fill="#ffffff" stroke="#718396" stroke-width="1.6"/>
+       <path d="M 408 225.29999999999998 Q 483.28 227.9 552 225.29999999999998
+       Q 560.7 225.29999999999998 562 236.6
+       Q 560.7 255.2 563.3 268.6
+       Q 563.3 277.3 552 278.6
+       Q 475.08 277.3 408 279.90000000000003
+       Q 399.3 279.90000000000003 398 268.6
+       Q 396.7 249.48 399.3 236.6
+       Q 399.3 227.9 408 225.29999999999998 Z" fill="none" stroke="#718396" stroke-width=".9" opacity=".48"/><text data-wrap-width="164" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="660" y="112.6">逻辑 block 2</tspan></text><path d="M 588 138.29999999999998 Q 663.28 134.9 732 138.29999999999998
+       Q 743.7 138.29999999999998 742 146.6
+       Q 743.7 165.2 740.3 178.6
+       Q 740.3 190.29999999999998 732 188.6
+       Q 655.08 190.29999999999998 588 186.9
+       Q 576.3 186.9 578 178.6
+       Q 579.7 159.48 576.3 146.6
+       Q 576.3 134.9 588 138.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 588 135.29999999999998 Q 663.28 137.9 732 135.29999999999998
+       Q 740.7 135.29999999999998 742 146.6
+       Q 740.7 165.2 743.3 178.6
+       Q 743.3 187.29999999999998 732 188.6
+       Q 655.08 187.29999999999998 588 189.9
+       Q 579.3 189.9 578 178.6
+       Q 576.7 159.48 579.3 146.6
+       Q 579.3 137.9 588 135.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><path d="M 588 228.29999999999998 Q 663.28 224.9 732 228.29999999999998
+       Q 743.7 228.29999999999998 742 236.6
+       Q 743.7 255.2 740.3 268.6
+       Q 740.3 280.3 732 278.6
+       Q 655.08 280.3 588 276.90000000000003
+       Q 576.3 276.90000000000003 578 268.6
+       Q 579.7 249.48 576.3 236.6
+       Q 576.3 224.9 588 228.29999999999998 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 588 225.29999999999998 Q 663.28 227.9 732 225.29999999999998
+       Q 740.7 225.29999999999998 742 236.6
+       Q 740.7 255.2 743.3 268.6
+       Q 743.3 277.3 732 278.6
+       Q 655.08 277.3 588 279.90000000000003
+       Q 579.3 279.90000000000003 578 268.6
+       Q 576.7 249.48 579.3 236.6
+       Q 579.3 227.9 588 225.29999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="164" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="840" y="112.6">逻辑 block 3</tspan></text><path d="M 768 138.29999999999998 Q 843.28 134.9 912 138.29999999999998
+       Q 923.7 138.29999999999998 922 146.6
+       Q 923.7 165.2 920.3 178.6
+       Q 920.3 190.29999999999998 912 188.6
+       Q 835.08 190.29999999999998 768 186.9
+       Q 756.3 186.9 758 178.6
+       Q 759.7 159.48 756.3 146.6
+       Q 756.3 134.9 768 138.29999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 768 135.29999999999998 Q 843.28 137.9 912 135.29999999999998
+       Q 920.7 135.29999999999998 922 146.6
+       Q 920.7 165.2 923.3 178.6
+       Q 923.3 187.29999999999998 912 188.6
+       Q 835.08 187.29999999999998 768 189.9
+       Q 759.3 189.9 758 178.6
+       Q 756.7 159.48 759.3 146.6
+       Q 759.3 137.9 768 135.29999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><path d="M 768 228.29999999999998 Q 843.28 224.9 912 228.29999999999998
+       Q 923.7 228.29999999999998 922 236.6
+       Q 923.7 255.2 920.3 268.6
+       Q 920.3 280.3 912 278.6
+       Q 835.08 280.3 768 276.90000000000003
+       Q 756.3 276.90000000000003 758 268.6
+       Q 759.7 249.48 756.3 236.6
+       Q 756.3 224.9 768 228.29999999999998 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 768 225.29999999999998 Q 843.28 227.9 912 225.29999999999998
+       Q 920.7 225.29999999999998 922 236.6
+       Q 920.7 255.2 923.3 268.6
+       Q 923.3 277.3 912 278.6
+       Q 835.08 277.3 768 279.90000000000003
+       Q 759.3 279.90000000000003 758 268.6
+       Q 756.7 249.48 759.3 236.6
+       Q 759.3 227.9 768 225.29999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><defs><marker id="a1094" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M218 289.6 Q217.4 292.6 218 295.6" stroke="#718396" fill="none" stroke-width="1.5"/><defs><marker id="a1095" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M218 295.6 Q390 298.6 562 295.6" stroke="#718396" fill="none" stroke-width="1.5"/><defs><marker id="a1096" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M562 295.6 Q562.6 292.6 562 289.6" stroke="#718396" fill="none" stroke-width="1.5"/><text data-wrap-width="344" fill="#718396" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="390" y="321.6">已完全移出窗口，可以回收</tspan></text><defs><marker id="a1098" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M578 289.6 Q577.4 292.6 578 295.6" stroke="#287d70" fill="none" stroke-width="1.5"/><defs><marker id="a1099" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M578 295.6 Q750 298.6 922 295.6" stroke="#287d70" fill="none" stroke-width="1.5"/><defs><marker id="a1100" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M922 295.6 Q922.6 292.6 922 289.6" stroke="#287d70" fill="none" stroke-width="1.5"/><text data-wrap-width="344" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="750" y="321.6">在窗口内，继续保留</tspan></text></svg>

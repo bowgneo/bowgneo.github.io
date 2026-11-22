@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="结合 vLLM 和 vLLM-Ascend 源码，图解 KV cache 分组机制、tensor 映射和各组的前缀命中。">
+  <title>vLLM KV cache 分组机制</title>
+  <link rel="canonical" href="https://bowgneo.github.io/posts/vllm-kv-cache-grouping/">
+  <link rel="stylesheet" href="assets/article.css?v=1f3442dd25">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header><nav class="site-links" aria-label="站点导航"><a class="brand" href="https://bowgneo.github.io/">grant</a></nav><a href="blog.md" download>下载 Markdown</a></header>
+  <main class="landing" id="main"><h1>vLLM KV cache 分组机制</h1>
+<p class="version-note">基于 vLLM 0.33 与 vLLM-Ascend <code>main</code>。Worker 使用 Model Runner V2。</p><div class="intro"><p>从 PagedAttention 的 block 读写出发，理解 Full 和 SWA 为什么要分组。</p></div>
+
+<h2>通用机制</h2>
+<ol class="cards">
+<li>
+  <span class="chapter-number">01</span>
+  <h3><span class="old-section" id="section-1"></span><span class="old-section" id="section-2"></span><a href="01-grouping-basics.html">为什么要给 KV cache 分组</a></h3>
+  <p>看懂 <code>block table</code>、<code>KVCacheSpec</code> 和 Worker 收集 cache entry 的过程。</p>
+  <a class="thumbnail" href="01-grouping-basics.html" aria-label="阅读第 1 篇"><img src="assets/19-page-retention.svg?v=44a3ece94b" width="960" height="362" alt="" loading="lazy"></a>
+</li>
+</ol>
+</main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="694" viewBox="0 0 960 694" role="img"><title>01-spec-collection</title><rect width="960" height="694" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">Model Runner V2 收集缓存规格</tspan></text><text data-wrap-width="896" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="32" y="92.6">同一 Worker 进程</tspan></text><path d="M 42 132.39999999999998 Q 162 129 272 132.39999999999998
+       Q 283.7 132.39999999999998 282 140.7
+       Q 283.7 186.305 280.3 221.79999999999998
+       Q 280.3 233.49999999999997 272 231.79999999999998
+       Q 149.5 233.49999999999997 42 230.1
+       Q 30.3 230.1 32 221.79999999999998
+       Q 33.7 175.18399999999997 30.3 140.7
+       Q 30.3 129 42 132.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 42 129.39999999999998 Q 162 132 272 129.39999999999998
+       Q 280.7 129.39999999999998 282 140.7
+       Q 280.7 186.305 283.3 221.79999999999998
+       Q 283.3 230.49999999999997 272 231.79999999999998
+       Q 149.5 230.49999999999997 42 233.1
+       Q 33.3 233.1 32 221.79999999999998
+       Q 30.7 175.18399999999997 33.3 140.7
+       Q 33.3 132 42 129.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="214" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="50" y="168.7">Model Runner V2</tspan></text><text data-wrap-width="214" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="50" y="205.7">调用采集入口</tspan></text><path d="M 360 132.39999999999998 Q 480 129 590 132.39999999999998
+       Q 601.7 132.39999999999998 600 140.7
+       Q 601.7 186.305 598.3 221.79999999999998
+       Q 598.3 233.49999999999997 590 231.79999999999998
+       Q 467.5 233.49999999999997 360 230.1
+       Q 348.3 230.1 350 221.79999999999998
+       Q 351.7 175.18399999999997 348.3 140.7
+       Q 348.3 129 360 132.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 360 129.39999999999998 Q 480 132 590 129.39999999999998
+       Q 598.7 129.39999999999998 600 140.7
+       Q 598.7 186.305 601.3 221.79999999999998
+       Q 601.3 230.49999999999997 590 231.79999999999998
+       Q 467.5 230.49999999999997 360 233.1
+       Q 351.3 233.1 350 221.79999999999998
+       Q 348.7 175.18399999999997 351.3 140.7
+       Q 351.3 132 360 129.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="214" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="368" y="168.7">get_kv_cache_spec</tspan></text><text data-wrap-width="214" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="368" y="205.7">Ascend V2 采集函数</tspan></text><path d="M 678 132.39999999999998 Q 803.2 129 918 132.39999999999998
+       Q 929.7 132.39999999999998 928 140.7
+       Q 929.7 186.305 926.3 221.79999999999998
+       Q 926.3 233.49999999999997 918 231.79999999999998
+       Q 790.2 233.49999999999997 678 230.1
+       Q 666.3 230.1 668 221.79999999999998
+       Q 669.7 175.18399999999997 666.3 140.7
+       Q 666.3 129 678 132.39999999999998 Z" fill="#eef7f4" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 678 129.39999999999998 Q 803.2 132 918 129.39999999999998
+       Q 926.7 129.39999999999998 928 140.7
+       Q 926.7 186.305 929.3 221.79999999999998
+       Q 929.3 230.49999999999997 918 231.79999999999998
+       Q 790.2 230.49999999999997 678 233.1
+       Q 669.3 233.1 668 221.79999999999998
+       Q 666.7 175.18399999999997 669.3 140.7
+       Q 669.3 132 678 129.39999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="224" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="686" y="168.7">缓存模块</tspan></text><text data-wrap-width="224" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="686" y="205.7">从模型注册表取出</tspan></text><defs><marker id="a43" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M157 231.79999999999998 Q154 439.65 157 647.5" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><defs><marker id="a44" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M475 231.79999999999998 Q472 439.65 475 647.5" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><defs><marker id="a45" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M798 231.79999999999998 Q795 439.65 798 647.5" stroke="#718396" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/><rect x="469" y="331.99999999999994" width="12" height="309.50000000000006" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="306" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="316" y="279.79999999999995">get_kv_cache_spec(config)</tspan></text><text data-wrap-width="306" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="316" y="311.9">遍历 AttentionLayerBase</tspan></text><defs><marker id="a31" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M157 331.99999999999994 Q313 334.99999999999994 469 331.99999999999994" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a31)"/><rect x="792" y="448.29999999999995" width="12" height="58.10000000000002" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="311" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="636.5" y="369.99999999999994">attn_module.get_kv_cache_spec</tspan><tspan x="636.5" y="396.09999999999997">(config)</tspan></text><text data-wrap-width="311" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="636.5" y="428.19999999999993">逐个调用已注册模块</tspan></text><defs><marker id="a34" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M481 448.29999999999995 Q636.5 451.29999999999995 792 448.29999999999995" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a34)"/><text data-wrap-width="311" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="636.5" y="486.29999999999995">对应 KVCacheSpec 或 None</tspan></text><defs><marker id="a36" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M792 506.4 Q636.5 503.4 481 506.4" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a36)"/><rect x="475" y="526.4" width="12" height="53" rx="1" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.5"/><text data-wrap-width="275" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="503" y="546.4">按 layer_name 登记 spec</tspan></text><text data-wrap-width="306" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400" text-anchor="middle"><tspan x="316" y="621.4">dict[layer_name, KVCacheSpec]</tspan></text><defs><marker id="a41" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M469 641.5 Q313 638.5 157 641.5" stroke="#346b9b" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a41)"/></svg>

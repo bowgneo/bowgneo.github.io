@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="584" viewBox="0 0 960 584" role="img"><title>20-paged-attention-block-table</title><rect width="960" height="584" fill="#ffffff"/><text data-wrap-width="896" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="28" font-weight="600"><tspan x="32" y="52">PagedAttention</tspan></text><text data-wrap-width="896" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="18" font-weight="400"><tspan x="32" y="92.6">每个 block 能存 4 个 token 的 KV cache</tspan></text><text data-wrap-width="146" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="32" y="197.7">token 位置</tspan></text><text data-wrap-width="146" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="32" y="323.7">block table</tspan></text><text data-wrap-width="124" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="500"><tspan x="32" y="480.7">KV tensor</tspan></text><text data-wrap-width="124" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400"><tspan x="32" y="504.7">物理 block</tspan></text><path d="M 208 287.4 Q 570.3199999999999 284 904 287.4
+       Q 915.7 287.4 914 295.7
+       Q 915.7 320.9 912.3 339.7
+       Q 912.3 351.4 904 349.7
+       Q 534.52 351.4 208 348
+       Q 196.3 348 198 339.7
+       Q 199.7 313.86 196.3 295.7
+       Q 196.3 284 208 287.4 Z" fill="#f6f8fa" stroke="#718396" stroke-width="1.6"/>
+       <path d="M 208 284.4 Q 570.3199999999999 287 904 284.4
+       Q 912.7 284.4 914 295.7
+       Q 912.7 320.9 915.3 339.7
+       Q 915.3 348.4 904 349.7
+       Q 534.52 348.4 208 351
+       Q 199.3 351 198 339.7
+       Q 196.7 313.86 199.3 295.7
+       Q 199.3 287 208 284.4 Z" fill="none" stroke="#718396" stroke-width=".9" opacity=".48"/><defs><marker id="a1109" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M556 285.7 Q553 317.7 556 349.7" stroke="#718396" fill="none" stroke-width="1.5"/><text data-wrap-width="260" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="400" text-anchor="middle"><tspan x="377" y="150.7">逻辑 block 0</tspan></text><path d="M 257 169.39999999999998 Q 382.20000000000005 166 497 169.39999999999998
+       Q 508.7 169.39999999999998 507 177.7
+       Q 508.7 195.2 505.3 207.7
+       Q 505.3 219.39999999999998 497 217.7
+       Q 369.2 219.39999999999998 257 216
+       Q 245.3 216 247 207.7
+       Q 248.7 189.7 245.3 177.7
+       Q 245.3 166 257 169.39999999999998 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 257 166.39999999999998 Q 382.20000000000005 169 497 166.39999999999998
+       Q 505.7 166.39999999999998 507 177.7
+       Q 505.7 195.2 508.3 207.7
+       Q 508.3 216.39999999999998 497 217.7
+       Q 369.2 216.39999999999998 257 219
+       Q 248.3 219 247 207.7
+       Q 245.7 189.7 248.3 177.7
+       Q 248.3 169 257 166.39999999999998 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><defs><marker id="a1112" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M312 171.7 Q309 192.7 312 213.7" stroke="#346b9b" fill="none" stroke-width="1.5"/><defs><marker id="a1113" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M377 171.7 Q374 192.7 377 213.7" stroke="#346b9b" fill="none" stroke-width="1.5"/><defs><marker id="a1114" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M442 171.7 Q439 192.7 442 213.7" stroke="#346b9b" fill="none" stroke-width="1.5"/><text data-wrap-width="65" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="279.5" y="197.2">token 0</tspan></text><text data-wrap-width="65" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="344.5" y="197.2">token 1</tspan></text><text data-wrap-width="65" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="409.5" y="197.2">token 2</tspan></text><text data-wrap-width="65" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="474.5" y="197.2">token 3</tspan></text><defs><marker id="a1119" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M377 225.7 Q374 252.2 377 278.7" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1119)"/><text data-wrap-width="72" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400"><tspan x="216" y="321.7">下标 0</tspan></text><text data-wrap-width="202" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="22" font-weight="600" text-anchor="middle"><tspan x="377" y="323.7">block_id = 1</tspan></text><defs><marker id="a1122" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M377 356.7 Q374 389.7 377 422.7" stroke="#346b9b" fill="none" stroke-width="1.5" marker-end="url(#a1122)"/><path d="M 249 431.4 Q 382.52 428 505 431.4
+       Q 516.7 431.4 515 439.7
+       Q 516.7 496.8 513.3 541.7
+       Q 513.3 553.4000000000001 505 551.7
+       Q 368.72 553.4000000000001 249 550
+       Q 237.3 550 239 541.7
+       Q 240.7 483.38 237.3 439.7
+       Q 237.3 428 249 431.4 Z" fill="#ffffff" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 249 428.4 Q 382.52 431 505 428.4
+       Q 513.7 428.4 515 439.7
+       Q 513.7 496.8 516.3 541.7
+       Q 516.3 550.4000000000001 505 551.7
+       Q 368.72 550.4000000000001 249 553
+       Q 240.3 553 239 541.7
+       Q 237.7 483.38 240.3 439.7
+       Q 240.3 431 249 428.4 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><text data-wrap-width="248" fill="#346b9b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="21" font-weight="600" text-anchor="middle"><tspan x="377" y="460.7">block_id = 1</tspan></text><text data-wrap-width="118" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400"><tspan x="251" y="490.7">KV cache</tspan></text><path d="M 261 503.4 Q 382.03999999999996 500 493 503.4
+       Q 504.7 503.4 503 511.7
+       Q 504.7 522.05 501.3 528.7
+       Q 501.3 540.4000000000001 493 538.7
+       Q 369.44 540.4000000000001 261 537
+       Q 249.3 537 251 528.7
+       Q 252.7 517.98 249.3 511.7
+       Q 249.3 500 261 503.4 Z" fill="#f0f5fa" stroke="#346b9b" stroke-width="1.6"/>
+       <path d="M 261 500.4 Q 382.03999999999996 503 493 500.4
+       Q 501.7 500.4 503 511.7
+       Q 501.7 522.05 504.3 528.7
+       Q 504.3 537.4000000000001 493 538.7
+       Q 369.44 537.4000000000001 261 540
+       Q 252.3 540 251 528.7
+       Q 249.7 517.98 252.3 511.7
+       Q 252.3 503 261 500.4 Z" fill="none" stroke="#346b9b" stroke-width=".9" opacity=".48"/><defs><marker id="a1127" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M314 505.7 Q311.1 520.2 314 534.7" stroke="#346b9b" fill="none" stroke-width="1.5"/><defs><marker id="a1128" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M377 505.7 Q374.1 520.2 377 534.7" stroke="#346b9b" fill="none" stroke-width="1.5"/><defs><marker id="a1129" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#346b9b"/></marker></defs><path d="M440 505.7 Q437.1 520.2 440 534.7" stroke="#346b9b" fill="none" stroke-width="1.5"/><text data-wrap-width="63" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="282.5" y="524.7">token 0</tspan></text><text data-wrap-width="63" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="345.5" y="524.7">token 1</tspan></text><text data-wrap-width="63" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="408.5" y="524.7">token 2</tspan></text><text data-wrap-width="63" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="471.5" y="524.7">token 3</tspan></text><text data-wrap-width="260" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="20" font-weight="400" text-anchor="middle"><tspan x="735" y="150.7">逻辑 block 1</tspan></text><path d="M 615 169.39999999999998 Q 740.2 166 855 169.39999999999998
+       Q 866.7 169.39999999999998 865 177.7
+       Q 866.7 195.2 863.3 207.7
+       Q 863.3 219.39999999999998 855 217.7
+       Q 727.2 219.39999999999998 615 216
+       Q 603.3 216 605 207.7
+       Q 606.7 189.7 603.3 177.7
+       Q 603.3 166 615 169.39999999999998 Z" fill="#ffffff" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 615 166.39999999999998 Q 740.2 169 855 166.39999999999998
+       Q 863.7 166.39999999999998 865 177.7
+       Q 863.7 195.2 866.3 207.7
+       Q 866.3 216.39999999999998 855 217.7
+       Q 727.2 216.39999999999998 615 219
+       Q 606.3 219 605 207.7
+       Q 603.7 189.7 606.3 177.7
+       Q 606.3 169 615 166.39999999999998 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><defs><marker id="a1136" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M670 171.7 Q667 192.7 670 213.7" stroke="#287d70" fill="none" stroke-width="1.5"/><defs><marker id="a1137" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M735 171.7 Q732 192.7 735 213.7" stroke="#287d70" fill="none" stroke-width="1.5"/><defs><marker id="a1138" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M800 171.7 Q797 192.7 800 213.7" stroke="#287d70" fill="none" stroke-width="1.5"/><text data-wrap-width="65" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="637.5" y="197.2">token 4</tspan></text><defs><marker id="a1140" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M735 225.7 Q732 252.2 735 278.7" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1140)"/><text data-wrap-width="72" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400"><tspan x="574" y="321.7">下标 1</tspan></text><text data-wrap-width="202" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="22" font-weight="600" text-anchor="middle"><tspan x="735" y="323.7">block_id = 5</tspan></text><defs><marker id="a1143" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M735 356.7 Q732 389.7 735 422.7" stroke="#287d70" fill="none" stroke-width="1.5" marker-end="url(#a1143)"/><path d="M 607 431.4 Q 740.52 428 863 431.4
+       Q 874.7 431.4 873 439.7
+       Q 874.7 496.8 871.3 541.7
+       Q 871.3 553.4000000000001 863 551.7
+       Q 726.72 553.4000000000001 607 550
+       Q 595.3 550 597 541.7
+       Q 598.7 483.38 595.3 439.7
+       Q 595.3 428 607 431.4 Z" fill="#ffffff" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 607 428.4 Q 740.52 431 863 428.4
+       Q 871.7 428.4 873 439.7
+       Q 871.7 496.8 874.3 541.7
+       Q 874.3 550.4000000000001 863 551.7
+       Q 726.72 550.4000000000001 607 553
+       Q 598.3 553 597 541.7
+       Q 595.7 483.38 598.3 439.7
+       Q 598.3 431 607 428.4 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><text data-wrap-width="248" fill="#287d70" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="21" font-weight="600" text-anchor="middle"><tspan x="735" y="460.7">block_id = 5</tspan></text><text data-wrap-width="118" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400"><tspan x="609" y="490.7">KV cache</tspan></text><path d="M 619 503.4 Q 740.04 500 851 503.4
+       Q 862.7 503.4 861 511.7
+       Q 862.7 522.05 859.3 528.7
+       Q 859.3 540.4000000000001 851 538.7
+       Q 727.44 540.4000000000001 619 537
+       Q 607.3 537 609 528.7
+       Q 610.7 517.98 607.3 511.7
+       Q 607.3 500 619 503.4 Z" fill="#ffffff" stroke="#287d70" stroke-width="1.6"/>
+       <path d="M 619 500.4 Q 740.04 503 851 500.4
+       Q 859.7 500.4 861 511.7
+       Q 859.7 522.05 862.3 528.7
+       Q 862.3 537.4000000000001 851 538.7
+       Q 727.44 537.4000000000001 619 540
+       Q 610.3 540 609 528.7
+       Q 607.7 517.98 610.3 511.7
+       Q 610.3 503 619 500.4 Z" fill="none" stroke="#287d70" stroke-width=".9" opacity=".48"/><defs><marker id="a1148" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M672 505.7 Q669.1 520.2 672 534.7" stroke="#287d70" fill="none" stroke-width="1.5"/><defs><marker id="a1149" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M735 505.7 Q732.1 520.2 735 534.7" stroke="#287d70" fill="none" stroke-width="1.5"/><defs><marker id="a1150" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#287d70"/></marker></defs><path d="M798 505.7 Q795.1 520.2 798 534.7" stroke="#287d70" fill="none" stroke-width="1.5"/><text data-wrap-width="63" fill="#24384b" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="16" font-weight="400" text-anchor="middle"><tspan x="640.5" y="524.7">token 4</tspan></text><defs><marker id="a1152" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#718396"/></marker></defs><path d="M515 200.7 Q556 203.7 597 200.7" stroke="#718396" fill="none" stroke-width="1.5" marker-end="url(#a1152)"/><text data-wrap-width="82" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="15" font-weight="400" text-anchor="middle"><tspan x="556" y="188.7">写满后分配</tspan></text><text data-wrap-width="82" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="23" font-weight="400" text-anchor="middle"><tspan x="556" y="489.7">…</tspan></text><text data-wrap-width="82" fill="#657789" font-family="Chalkboard SE,Kaiti SC,KaiTi,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="15" font-weight="400" text-anchor="middle"><tspan x="556" y="516.7">block 2–4</tspan></text></svg>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="PagedAttention 按 block 给 KV cache 分配内存。图里每个 block 有 4 个位置，前四个 token 的 KV cache 填满了物理 block `1`。处理位置 `4` 时，vLLM 从 `BlockPool` 取到物理 block `5`，这个请求的 `block table` 从 `[1]` 变成 `[1, 5]`。">
+  <title>为什么要给 KV cache 分组 · vLLM KV cache 分组机制</title>
+  <link rel="canonical" href="https://bowgneo.github.io/posts/vllm-kv-cache-grouping/01-grouping-basics.html">
+  <link rel="stylesheet" href="assets/article.css?v=1f3442dd25">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header><nav class="site-links" aria-label="站点导航"><a class="brand" href="https://bowgneo.github.io/">grant</a><a href="index.html">系列目录</a></nav><a href="01-grouping-basics.md" download>下载 Markdown</a></header>
+  <main class="article" id="main"><article><h1>为什么要给 KV cache 分组</h1><aside class="chapter-nav"><details open><summary>本篇小节</summary><nav aria-label="本篇小节"><ol><li><a href="#section-1">PagedAttention</a></li><li><a href="#section-2">为什么一张 block table 不够</a></li><li><a href="#section-3">KVCacheSpec</a></li><li><a href="#section-4">Worker 收集 KVCacheSpec</a></li></ol></nav></details></aside><p class="version-note">vLLM 0.33 / vLLM-Ascend main · Model Runner V2</p>
+<h2 id="section-1">PagedAttention</h2>
+<p>PagedAttention 按 block 给 KV cache 分配内存。图里每个 block 有 4 个位置，前四个 token 的 KV cache 填满了物理 block <code>1</code>。处理位置 <code>4</code> 时，vLLM 从 <code>BlockPool</code> 取到物理 block <code>5</code>，这个请求的 <code>block table</code> 从 <code>[1]</code> 变成 <code>[1, 5]</code>。</p>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="PagedAttention 的逻辑 block、block table 和物理 block 中的 KV cache" tabindex="0"><a href="assets/20-paged-attention-block-table.svg?v=ceeb05eb74" target="_blank" aria-label="放大查看 PagedAttention 的逻辑 block、block table 和物理 block 中的 KV cache"><img src="assets/20-paged-attention-block-table.svg?v=ceeb05eb74" alt="PagedAttention 的逻辑 block、block table 和物理 block 中的 KV cache" loading="lazy"></a></div><figcaption>PagedAttention 的逻辑 block、block table 和物理 block 中的 KV cache · <span class="diagram-pan">窄屏可横滑 · </span><a href="assets/20-paged-attention-block-table.svg?v=ceeb05eb74" target="_blank">放大</a> · <a href="assets/20-paged-attention-block-table.excalidraw" download>Excalidraw</a></figcaption></figure>
+<p>token <code>4</code> 属于逻辑 block <code>1</code>，从 <code>block_table[1]</code> 查到的物理 block 编号是 <code>5</code>。它的 KV cache 就在 KV tensor 的 block <code>5</code> 中读写。图中物理 block <code>1</code> 和 <code>5</code> 之间的几块还可以分给别的请求。<a href="https://vllm.ai/blog/2023-06-20-vllm">vLLM 官方 PagedAttention 介绍</a></p>
+<h2 id="section-2">为什么一张 block table 不够</h2>
+<p>Full attention 计算新 token 时要读之前所有 token 的 KV cache，所以旧 block 要留到请求结束。SWA（sliding window attention）只需要窗口内的 KV cache，已经完全移出窗口的 block 可以回收。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/core/single_type_kv_cache_manager.py#L1148-L1165">SWA 的窗口</a> · <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/core/single_type_kv_cache_manager.py#L704-L720">窗口外的 block 回收</a></p>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="Full attention 保留完整历史，SWA 可以回收完全移出窗口的 block" tabindex="0"><a href="assets/19-page-retention.svg?v=44a3ece94b" target="_blank" aria-label="放大查看 Full attention 保留完整历史，SWA 可以回收完全移出窗口的 block"><img src="assets/19-page-retention.svg?v=44a3ece94b" alt="Full attention 保留完整历史，SWA 可以回收完全移出窗口的 block" loading="lazy"></a></div><figcaption>Full attention 保留完整历史，SWA 可以回收完全移出窗口的 block · <span class="diagram-pan">窄屏可横滑 · </span><a href="assets/19-page-retention.svg?v=44a3ece94b" target="_blank">放大</a> · <a href="assets/19-page-retention.excalidraw" download>Excalidraw</a></figcaption></figure>
+<p>如果 Full 和 SWA 共用一张 <code>block table</code>，旧 block 就得按 Full 的需要留着，SWA 已经用完的空间也会一起占着。vLLM 把 Full 和 SWA 的 KV cache 分到不同的 <strong>KV cache group</strong>，各组用自己的 <code>block table</code>。窗口往前移时，SWA 就可以单独回收旧 block。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L1505-L1513">KVCacheGroupSpec</a></p>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="共用 block table 时保留的 Full 和 SWA 缓存，以及分组后 SWA 归还窗口外 block 的过程" tabindex="0"><a href="assets/21-full-swa-groups.svg?v=0a675f55da" target="_blank" aria-label="放大查看 共用 block table 时保留的 Full 和 SWA 缓存，以及分组后 SWA 归还窗口外 block 的过程"><img src="assets/21-full-swa-groups.svg?v=0a675f55da" alt="共用 block table 时保留的 Full 和 SWA 缓存，以及分组后 SWA 归还窗口外 block 的过程" loading="lazy"></a></div><figcaption>共用 block table 时保留的 Full 和 SWA 缓存，以及分组后 SWA 归还窗口外 block 的过程 · <span class="diagram-pan">窄屏可横滑 · </span><a href="assets/21-full-swa-groups.svg?v=0a675f55da" target="_blank">放大</a> · <a href="assets/21-full-swa-groups.excalidraw" download>Excalidraw</a></figcaption></figure>
+<p>SWA 归还 block <code>4</code> 和 <code>6</code> 后，调度侧在原来的两个位置用 <code>null_block</code> 占位。Full 继续用 block <code>7</code> 和 <code>3</code> 读历史 KV cache。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/core/single_type_kv_cache_manager.py#L670-L680">占位并归还 block</a></p>
+<h3>每组一个 manager、一张 block table</h3>
+<p>Scheduler 给 Full 和 SWA 两组各建一个 manager，负责本组的 block 分配和回收。Worker 也给两组各建一张 <code>block table</code>。图里 Full 是第 <code>0</code> 组，SWA 是第 <code>1</code> 组。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/core/kv_cache_coordinator.py#L161-L176">创建 manager</a> · <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/worker/gpu/block_table.py#L65-L75">按组建表</a></p>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="同一个请求在 Full 和 SWA 两组中的 manager 和 block table" tabindex="0"><a href="assets/26-kv-cache-groups.svg?v=72cfafcc7b" target="_blank" aria-label="放大查看 同一个请求在 Full 和 SWA 两组中的 manager 和 block table"><img src="assets/26-kv-cache-groups.svg?v=72cfafcc7b" alt="同一个请求在 Full 和 SWA 两组中的 manager 和 block table" loading="lazy"></a></div><figcaption>同一个请求在 Full 和 SWA 两组中的 manager 和 block table · <span class="diagram-pan">窄屏可横滑 · </span><a href="assets/26-kv-cache-groups.svg?v=72cfafcc7b" target="_blank">放大</a> · <a href="assets/26-kv-cache-groups.excalidraw" download>Excalidraw</a></figcaption></figure>
+<h2 id="section-3">KVCacheSpec</h2>
+<p><code>KVCacheSpec</code> 是缓存规格的基类。Full、SWA、MLA、Mamba 等缓存使用不同的子类。</p>
+<h3>attention 对应的 spec</h3>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="Full、SWA、MLA 与 MambaSpec 的继承关系" tabindex="0"><a href="assets/22-kv-cache-spec.svg?v=ee7c22dcec" target="_blank" aria-label="放大查看 Full、SWA、MLA 与 MambaSpec 的继承关系"><img src="assets/22-kv-cache-spec.svg?v=ee7c22dcec" alt="Full、SWA、MLA 与 MambaSpec 的继承关系" loading="lazy"></a></div><figcaption>Full、SWA、MLA 与 MambaSpec 的继承关系 · <span class="diagram-pan">窄屏可横滑 · </span><a href="assets/22-kv-cache-spec.svg?v=ee7c22dcec" target="_blank">放大</a> · <a href="assets/22-kv-cache-spec.excalidraw" download>Excalidraw</a></figcaption></figure>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>spec</th>
+<th>用途</th>
+<th>核心字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>FullAttentionSpec</code></td>
+<td>MHA / MQA / GQA</td>
+<td>K、V 的头数 <code>num_kv_heads</code>，每个头的 K、V 维度 <code>head_size</code>、<code>head_size_v</code>，数据格式 <code>dtype</code> <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L618-L639">定义</a></td>
+</tr>
+<tr>
+<td><code>MLAAttentionSpec</code></td>
+<td>MLA、MLA 格式的压缩缓存</td>
+<td>缓存向量维度 <code>head_size</code>，每个向量对应的 token 数 <code>tokens_per_state</code>，数据格式 <code>dtype</code> <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L728-L743">定义</a></td>
+</tr>
+<tr>
+<td><code>SlidingWindowSpec</code></td>
+<td>SWA</td>
+<td>窗口长度 <code>sliding_window</code> <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L900-L908">定义</a></td>
+</tr>
+<tr>
+<td><code>SlidingWindowMLASpec</code></td>
+<td>MLA 窗口缓存</td>
+<td>窗口长度 <code>sliding_window</code>，缓存向量维度 <code>head_size</code>，数据格式 <code>dtype</code> <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L1007-L1018">定义</a></td>
+</tr>
+<tr>
+<td><code>CircularBufferSpec</code></td>
+<td>压缩模块的 raw key ring</td>
+<td>循环缓存容量 <code>block_size</code>，每请求一个 block，前缀复用 <code>prefix_cacheable=False</code> <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L967-L1000">定义</a></td>
+</tr>
+<tr>
+<td><code>MambaSpec</code></td>
+<td>Mamba、GDN、KDA</td>
+<td>状态形状 <code>shapes</code>，数据格式 <code>dtypes</code>，缓存模式 <code>mamba_cache_mode</code> <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L1093-L1107">定义</a></td>
+</tr>
+</tbody></table></div>
+<h3>核心字段</h3>
+<pre><code class="language-python">class KVCacheSpec:
+    &quot;&quot;&quot;A base class for specifying the KV cache format of one layer.&quot;&quot;&quot;
+
+    # number of tokens in a block
+    block_size: int
+    # ...
+class AttentionSpec(KVCacheSpec):
+    # ...
+    num_kv_heads: int
+    head_size: int
+    dtype: torch.dtype
+    head_size_v: int = None  # type: ignore[assignment]
+</code></pre>
+<p>源码片段 <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L202-L206">kv_cache_interface.py L202–206</a> · <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L552-L552">kv_cache_interface.py L552</a> · <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L557-L560">kv_cache_interface.py L557–560</a></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>block_size</code></td>
+<td>一个完整 block 覆盖的 token 数</td>
+</tr>
+<tr>
+<td><code>num_kv_heads</code></td>
+<td>当前 Worker 持有的 KV 头数</td>
+</tr>
+<tr>
+<td><code>head_size</code>、<code>head_size_v</code></td>
+<td>普通 K/V 缓存中，每个头的 K、V 元素数</td>
+</tr>
+<tr>
+<td><code>dtype</code></td>
+<td>元素类型，BF16 每个元素占 2 字节</td>
+</tr>
+<tr>
+<td><code>tokens_per_state</code></td>
+<td>每条记录覆盖的 token 数，<code>1</code> 表示一 token 一条记录，<code>4</code> 表示四 token 压缩成一条记录缓存</td>
+</tr>
+<tr>
+<td><code>page_size_padded</code></td>
+<td>指定 block 补齐到多少字节，默认 <code>None</code>（不补齐）</td>
+</tr>
+<tr>
+<td><code>page_size_bytes</code></td>
+<td>一个 block 最终分配的字节数</td>
+</tr>
+</tbody></table></div>
+<p><a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L551-L572">公共字段</a> · <a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L579-L601">字节数计算</a></p>
+<h3>一个物理 block 占多少空间</h3>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="" tabindex="0"><a href="assets/23-attention-spec-fields.svg?v=cb8f8c3e7b" target="_blank" aria-label="放大查看 "><img src="assets/23-attention-spec-fields.svg?v=cb8f8c3e7b" alt="" loading="lazy"></a></div><figcaption><span class="diagram-pan">窄屏可横滑 · </span><a href="assets/23-attention-spec-fields.svg?v=cb8f8c3e7b" target="_blank">放大</a> · <a href="assets/23-attention-spec-fields.excalidraw" download>Excalidraw</a></figcaption></figure>
+<p>图中一个 token 的 KV cache 占 <code>2 × (128 + 128) × 2 = 1024</code> 字节，四个 token 占 <code>4096</code> 字节（<code>4 KiB</code>）。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L579-L594">计算代码</a></p>
+<pre><code class="language-text">block_size × num_kv_heads × (head_size + head_size_v) × 每个元素的字节数
+</code></pre>
+<p>图中的 KV cache 占 <code>4096</code> 字节。如果设置 <code>page_size_padded=8192</code>，一个 block 就分配 <code>8192</code> 字节，多出的 <code>4096</code> 字节是 padding。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L592-L601">大小计算</a></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><code>page_size_padded</code></th>
+<th><code>page_size_bytes</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>None</code>（不补齐）</td>
+<td><code>4096</code> 字节</td>
+</tr>
+<tr>
+<td><code>8192</code></td>
+<td><code>8192</code> 字节</td>
+</tr>
+</tbody></table></div>
+<p>MLA 和 Mamba 缓存按各自的 spec 计算。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/v1/kv_cache_interface.py#L1109-L1129">Mamba 状态大小</a></p>
+<h3>Ascend 的 spec</h3>
+<p>Ascend 的子类沿用上游 spec 中的 <code>block_size</code>、<code>head_size</code>、<code>dtype</code> 等属性。各子类按用途增加属性，例如量化参数 <code>scale_dim</code>、<code>scale_dtype</code>，压缩比 <code>compress_ratio</code>，以及布局标记 <code>indexes_kv_by_block_stride</code>。部分子类还重写了 block 字节数的计算属性，如 <code>real_page_size_bytes</code>、<code>unpadded_page_size_bytes</code> 和 <code>page_size_bytes</code>。<a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L244-L254">MLA 实现</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L348-L355">indexer 实现</a></p>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="" tabindex="0"><a href="assets/24-ascend-kv-cache-spec.svg?v=1005b5f337" target="_blank" aria-label="放大查看 "><img src="assets/24-ascend-kv-cache-spec.svg?v=1005b5f337" alt="" loading="lazy"></a></div><figcaption><span class="diagram-pan">窄屏可横滑 · </span><a href="assets/24-ascend-kv-cache-spec.svg?v=1005b5f337" target="_blank">放大</a> · <a href="assets/24-ascend-kv-cache-spec.excalidraw" download>Excalidraw</a></figcaption></figure>
+<p>类定义 <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L191-L217">MLA</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L313-L329">indexer</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L391-L401">SWA</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L473-L495">tail</a></p>
+<h2 id="section-4">Worker 收集 KVCacheSpec</h2>
+<p>Model Runner V2 遍历模型注册的缓存模块，调用各模块的 <code>get_kv_cache_spec()</code>。复用其他模块缓存的模块会被跳过，返回 <code>None</code> 的也不登记。<a href="https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/config/vllm.py#L3640-L3661">查找缓存模块</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L201-L221">遍历与采集</a></p>
+<figure class="grouping-figure"><div class="diagram-scroll" role="region" aria-label="Model Runner V2 在 Worker 进程内收集缓存规格" tabindex="0"><a href="assets/01-spec-collection.svg?v=b53101098a" target="_blank" aria-label="放大查看 Model Runner V2 在 Worker 进程内收集缓存规格"><img src="assets/01-spec-collection.svg?v=b53101098a" alt="Model Runner V2 在 Worker 进程内收集缓存规格" loading="lazy"></a></div><figcaption>Model Runner V2 在 Worker 进程内收集缓存规格 · <span class="diagram-pan">窄屏可横滑 · </span><a href="assets/01-spec-collection.svg?v=b53101098a" target="_blank">放大</a> · <a href="assets/01-spec-collection.excalidraw" download>Excalidraw</a></figcaption></figure>
+<pre><code class="language-python">def get_kv_cache_spec(vllm_config: VllmConfig) -&gt; dict[str, KVCacheSpec]:
+    # ...
+    kv_cache_spec: dict[str, KVCacheSpec] = {}
+    # ...
+    layer_type = AttentionLayerBase
+    attn_layers = get_layers_from_vllm_config(vllm_config, layer_type)
+    for layer_name, attn_module in attn_layers.items():
+        if getattr(attn_module, &quot;kv_sharing_target_layer_name&quot;, None):
+            continue
+
+        spec = attn_module.get_kv_cache_spec(vllm_config)
+        # ...
+        if spec is None:
+            continue
+        # ...
+        kv_cache_spec[layer_name] = spec
+    # ...
+    return kv_cache_spec
+</code></pre>
+<p>源码片段 <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L196-L196">函数签名</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L198-L198">spec 字典</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L201-L207">遍历并读取 spec</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L220-L221">跳过空 spec</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L250-L250">按 layer_name 保存</a> · <a href="https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L307-L307">返回字典</a></p>
+<h3>cache entry</h3>
+<p>Worker 返回一个字典，键是 <code>layer_name</code>，值是对应的 <code>KVCacheSpec</code>。字典里的每一项就是一条 cache entry。</p>
+</article><nav class="pagination" aria-label="上下篇"><a class="next" href="index.html">返回系列目录 →</a></nav></main>
+</body>
+</html>
