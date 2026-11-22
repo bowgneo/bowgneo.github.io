@@ -95,15 +95,15 @@ MLA 和 Mamba 缓存按各自的 spec 计算。[Mamba 状态大小](https://gith
 
 ### Ascend 的 spec
 
-Ascend 的子类沿用上游 spec 中的 `block_size`、`head_size`、`dtype` 等属性。各子类按用途增加属性，例如量化参数 `scale_dim`、`scale_dtype`，压缩比 `compress_ratio`，以及布局标记 `indexes_kv_by_block_stride`。部分子类还重写了 block 字节数的计算属性，如 `real_page_size_bytes`、`unpadded_page_size_bytes` 和 `page_size_bytes`。[MLA 实现](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L244-L254) · [indexer 实现](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L348-L355)
+Ascend 的子类沿用上游 spec 中的 `block_size`、`head_size`、`dtype` 等属性。各子类按用途增加属性，例如量化参数 `scale_dim`、`scale_dtype`，压缩比 `compress_ratio`，以及布局标记 `indexes_kv_by_block_stride`。部分子类还重写了 block 字节数的计算属性，如 `real_page_size_bytes`、`unpadded_page_size_bytes` 和 `page_size_bytes`。[MLA 实现](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/core/kv_cache_interface.py#L244-L254) · [indexer 实现](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/core/kv_cache_interface.py#L348-L355)
 
 ![](assets/24-ascend-kv-cache-spec.svg)
 
-类定义 [MLA](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L191-L217) · [indexer](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L313-L329) · [SWA](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L391-L401) · [tail](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/core/kv_cache_interface.py#L473-L495)
+类定义 [MLA](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/core/kv_cache_interface.py#L191-L217) · [indexer](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/core/kv_cache_interface.py#L313-L329) · [SWA](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/core/kv_cache_interface.py#L391-L401) · [tail](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/core/kv_cache_interface.py#L473-L495)
 
 ## Worker 收集 KVCacheSpec
 
-Model Runner V2 遍历模型注册的缓存模块，调用各模块的 `get_kv_cache_spec()`。复用其他模块缓存的模块会被跳过，返回 `None` 的也不登记。[查找缓存模块](https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/config/vllm.py#L3640-L3661) · [遍历与采集](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L201-L221)
+Model Runner V2 遍历模型注册的缓存模块，调用各模块的 `get_kv_cache_spec()`。复用其他模块缓存的模块会被跳过，返回 `None` 的也不登记。[查找缓存模块](https://github.com/vllm-project/vllm/blob/4ba787ec9959e566d3b587a796dff07673324da5/vllm/config/vllm.py#L3640-L3661) · [遍历与采集](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/worker/v2/attn_utils.py#L201-L221)
 
 ![Model Runner V2 在 Worker 进程内收集缓存规格](assets/01-spec-collection.svg)
 
@@ -128,7 +128,7 @@ def get_kv_cache_spec(vllm_config: VllmConfig) -> dict[str, KVCacheSpec]:
     return kv_cache_spec
 ```
 
-源码片段 [函数签名](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L196-L196) · [spec 字典](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L198-L198) · [遍历并读取 spec](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L201-L207) · [跳过空 spec](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L220-L221) · [按 layer_name 保存](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L250-L250) · [返回字典](https://github.com/vllm-project/vllm-ascend/blob/7844c213dc4ee84f24b21471466ce2f25196626a/vllm_ascend/worker/v2/attn_utils.py#L307-L307)
+源码片段 [函数签名](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/worker/v2/attn_utils.py#L196-L196) · [spec 字典](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/worker/v2/attn_utils.py#L198-L198) · [遍历并读取 spec](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/worker/v2/attn_utils.py#L201-L207) · [跳过空 spec](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/worker/v2/attn_utils.py#L220-L221) · [按 layer_name 保存](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/worker/v2/attn_utils.py#L250-L250) · [返回字典](https://github.com/vllm-project/vllm-ascend/blob/c64ace678d12d5a48671d929c76f723f8158876c/vllm_ascend/worker/v2/attn_utils.py#L307-L307)
 
 ### cache entry
 

@@ -1,6 +1,6 @@
 # vLLM KV cache 分组机制
 
-基于 vLLM 0.33 与 vLLM-Ascend `main`。Worker 使用 Model Runner V2。
+基于 vLLM `releases/v0.33.0` 与 vLLM-Ascend `releases/v0.33.0rc`。Worker 使用 Model Runner V2。
 
 从 PagedAttention 的 block 读写出发，理解 Full 和 SWA 为什么要分组。
 

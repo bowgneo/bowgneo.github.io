@@ -12,7 +12,7 @@
   <a class="skip" href="#main">跳到正文</a>
   <header><nav class="site-links" aria-label="站点导航"><a class="brand" href="https://bowgneo.github.io/">grant</a></nav><a href="blog.md" download>下载 Markdown</a></header>
   <main class="landing" id="main"><h1>vLLM KV cache 分组机制</h1>
-<p class="version-note">基于 vLLM 0.33 与 vLLM-Ascend <code>main</code>。Worker 使用 Model Runner V2。</p><div class="intro"><p>从 PagedAttention 的 block 读写出发，理解 Full 和 SWA 为什么要分组。</p></div>
+<p class="version-note">基于 vLLM <code>releases/v0.33.0</code> 与 vLLM-Ascend <code>releases/v0.33.0rc</code>。Worker 使用 Model Runner V2。</p><div class="intro"><p>从 PagedAttention 的 block 读写出发，理解 Full 和 SWA 为什么要分组。</p></div>
 
 <h2>通用机制</h2>
 <ol class="cards">
