@@ -130,18 +130,13 @@ img { display: block; max-width: 100%; height: auto; }
   background: #edf4fc;
 }
 
-.announcement h2, .visitor-overview h2 { font-size: .9375rem; line-height: 1.4; }
+.announcement h2, .site-count h2 { font-size: .9375rem; line-height: 1.4; }
 .announcement h2 { color: var(--accent); }
 .announcement p { margin-top: .4rem; }
 .announcement a { font-weight: 630; }
 .announcement a:hover { color: var(--ink); }
 
-.visitor-overview {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+.site-count {
   margin-top: 1.65rem;
   padding: .95rem 1.05rem;
   border: 1px solid var(--line);
@@ -149,27 +144,13 @@ img { display: block; max-width: 100%; height: auto; }
   background: var(--surface);
 }
 
-.visitor-caption p { margin-top: .25rem; color: var(--muted); font-size: .875rem; }
-.visitor-map { position: relative; width: min(45%, 11rem); }
-.visitor-map img, .visitor-map svg { display: block; width: 100%; height: auto; border-radius: .45rem; background: #f1f6fa; }
-.visitor-map path { fill: #bed0df; stroke: #f1f6fa; stroke-width: .7; }
-.visitor-map .has-visits { fill: var(--country-fill); }
-.visitor-map path:hover, .visitor-map path:focus { fill: var(--accent); outline: none; }
-.visitor-tooltip {
-  position: absolute;
-  z-index: 1;
-  inset: auto auto .35rem .35rem;
-  max-width: calc(100% - .7rem);
-  padding: .18rem .45rem;
-  border-radius: .35rem;
-  color: white;
-  background: var(--ink);
-  font-size: .8125rem;
-  pointer-events: none;
+.pageview-total {
+  display: block;
+  margin-top: .35rem;
+  color: var(--muted);
+  font-size: .875rem;
 }
-.visitor-breakdown { flex-basis: 100%; min-width: 0; color: var(--muted); font-size: .875rem; }
-.visitor-breakdown summary { cursor: pointer; color: var(--accent); }
-.visitor-breakdown ul { margin: .35rem 0 0; padding-left: 1.25rem; }
+.pageview-total[data-loaded] { color: var(--accent); font-size: 1.45rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 
 .series-list { display: grid; gap: 1rem; }
 
@@ -259,14 +240,10 @@ img { display: block; max-width: 100%; height: auto; }
     padding: 1rem 1.05rem;
   }
 
-  .visitor-overview {
+  .site-count {
     grid-area: 4 / 2;
-    display: grid;
-    gap: .8rem;
     margin-top: 1rem;
   }
-
-  .visitor-map { width: 100%; }
 }
 
 @media (hover: hover) {

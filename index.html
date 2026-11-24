@@ -8,8 +8,8 @@
   <title>grant</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://bowgneo.github.io/">
-  <link rel="stylesheet" href="style.css?v=visitor-map">
-  <script src="assets/visitor-map.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=pageviews">
+  <script src="assets/pageviews.js" defer></script>
 </head>
 <body class="homepage">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -63,19 +63,9 @@
       </article>
     </div>
   </section>
-  <section class="visitor-overview" aria-labelledby="visitor-title" data-visitor-endpoint="https://grant-visitor-map.bowgneo-github-io.workers.dev/visits">
-    <div class="visitor-caption">
-      <h2 id="visitor-title">访客地图</h2>
-      <p id="visitor-status" aria-live="polite">正在加载访问统计…</p>
-    </div>
-    <div class="visitor-map">
-      <img src="assets/visitor-basemap.png" alt="" width="720" height="360" decoding="async">
-      <div class="visitor-tooltip" hidden></div>
-    </div>
-    <details class="visitor-breakdown" hidden>
-      <summary>按地区查看</summary>
-      <ul></ul>
-    </details>
+  <section class="site-count" aria-labelledby="visitor-title">
+    <h2 id="visitor-title">全站累计浏览量</h2>
+    <output id="pageview-total" class="pageview-total" aria-live="polite">—</output>
   </section>
 </main>
 <footer class="site-footer"><span>© 2026 grant</span><a href="https://github.com/bowgneo">GitHub</a></footer>
