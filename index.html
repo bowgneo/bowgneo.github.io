@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="grant 的文章和笔记。">
-  <meta name="theme-color" content="#fffefa">
+  <meta name="theme-color" content="#f7f9fc">
   <title>grant</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://bowgneo.github.io/">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="homepage">
 <a class="skip-link" href="#main">跳到正文</a>
 <div class="site-top">
   <header class="site-header">
@@ -24,9 +24,17 @@
 </div>
 <main class="home" id="main">
   <h1>文章</h1>
-  <section class="series-section" aria-labelledby="vllm">
-    <h2 id="vllm">vLLM</h2>
-    <div class="series-grid">
+  <h2 class="column-heading updates-heading">站点动态</h2>
+  <section class="announcement" aria-labelledby="announcement-title">
+    <h2 id="announcement-title">公告</h2>
+    <p><a href="posts/vllm-kv-cache-grouping/01-grouping-basics.html">为什么要给 KV cache 分组</a></p>
+  </section>
+  <section class="series-section" aria-labelledby="series-title">
+    <div class="column-heading">
+      <h2 id="series-title">文章系列</h2>
+      <span class="series-topic">vLLM</span>
+    </div>
+    <div class="series-list">
       <article class="series-card">
         <div class="series-cover"><img src="posts/vllm-kv-connector-scheduling-flow/assets/27-schedule-sketch.svg" alt="Scheduler 查询命中并分配 KV blocks"></div>
         <div class="series-body">
@@ -53,6 +61,13 @@
         </div>
       </article>
     </div>
+  </section>
+  <section class="visitor-overview" aria-labelledby="visitor-title">
+    <div class="visitor-caption">
+      <h2 id="visitor-title">访客地图</h2>
+      <p>统计尚未启用</p>
+    </div>
+    <img class="visitor-map" src="assets/visitor-basemap.png" alt="" width="720" height="360" decoding="async">
   </section>
 </main>
 <footer class="site-footer"><span>© 2026 grant</span><a href="https://github.com/bowgneo">GitHub</a></footer>
