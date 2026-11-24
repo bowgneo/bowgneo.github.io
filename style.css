@@ -145,12 +145,27 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .pageview-total {
-  display: block;
   margin-top: .35rem;
   color: var(--muted);
   font-size: .875rem;
 }
-.pageview-total[data-loaded] { color: var(--accent); font-size: 1.45rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pageview-total output[data-loaded] { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.visitor-map { position: relative; margin-top: .85rem; }
+.visitor-map img, .visitor-map svg { display: block; width: 100%; height: auto; border-radius: .45rem; background: #f1f6fa; }
+.visitor-map path { fill: var(--country-fill, #bed0df); stroke: #f1f6fa; stroke-width: .7; }
+.visitor-map path:hover, .visitor-map path:focus-visible { fill: var(--accent); outline: none; }
+.visitor-tooltip {
+  position: absolute;
+  left: .35rem;
+  bottom: .35rem;
+  max-width: calc(100% - .7rem);
+  padding: .18rem .45rem;
+  border-radius: .35rem;
+  color: white;
+  background: var(--ink);
+  font-size: .8125rem;
+  pointer-events: none;
+}
 
 .series-list { display: grid; gap: 1rem; }
 

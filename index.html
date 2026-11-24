@@ -8,8 +8,8 @@
   <title>grant</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://bowgneo.github.io/">
-  <link rel="stylesheet" href="style.css?v=pageviews">
-  <script src="assets/pageviews.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=sitewide-map">
+  <script src="assets/pageviews.js?v=sitewide-map" defer></script>
 </head>
 <body class="homepage">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -64,8 +64,12 @@
     </div>
   </section>
   <section class="site-count" aria-labelledby="visitor-title">
-    <h2 id="visitor-title">全站累计浏览量</h2>
-    <output id="pageview-total" class="pageview-total" aria-live="polite">—</output>
+    <h2 id="visitor-title">访客地图</h2>
+    <p class="pageview-total">全站累计浏览量 <output id="pageview-total" aria-live="polite">—</output></p>
+    <div class="visitor-map">
+      <img src="assets/visitor-basemap.png" alt="世界地图" width="720" height="360">
+      <span class="visitor-tooltip" hidden></span>
+    </div>
   </section>
 </main>
 <footer class="site-footer"><span>© 2026 grant</span><a href="https://github.com/bowgneo">GitHub</a></footer>
