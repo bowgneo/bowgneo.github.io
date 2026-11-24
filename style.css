@@ -138,6 +138,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .visitor-overview {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -149,7 +150,26 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .visitor-caption p { margin-top: .25rem; color: var(--muted); font-size: .875rem; }
-.visitor-map { width: min(45%, 11rem); border-radius: .45rem; }
+.visitor-map { position: relative; width: min(45%, 11rem); }
+.visitor-map img, .visitor-map svg { display: block; width: 100%; height: auto; border-radius: .45rem; background: #f1f6fa; }
+.visitor-map path { fill: #bed0df; stroke: #f1f6fa; stroke-width: .7; }
+.visitor-map .has-visits { fill: var(--country-fill); }
+.visitor-map path:hover, .visitor-map path:focus { fill: var(--accent); outline: none; }
+.visitor-tooltip {
+  position: absolute;
+  z-index: 1;
+  inset: auto auto .35rem .35rem;
+  max-width: calc(100% - .7rem);
+  padding: .18rem .45rem;
+  border-radius: .35rem;
+  color: white;
+  background: var(--ink);
+  font-size: .8125rem;
+  pointer-events: none;
+}
+.visitor-breakdown { flex-basis: 100%; min-width: 0; color: var(--muted); font-size: .875rem; }
+.visitor-breakdown summary { cursor: pointer; color: var(--accent); }
+.visitor-breakdown ul { margin: .35rem 0 0; padding-left: 1.25rem; }
 
 .series-list { display: grid; gap: 1rem; }
 

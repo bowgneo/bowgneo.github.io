@@ -1,0 +1,13 @@
+{
+  "name": "grant-visitor-map",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-24",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": false },
+  "vars": { "SITE_ORIGIN": "https://bowgneo.github.io" },
+  "durable_objects": {
+    "bindings": [{ "name": "VISITS", "class_name": "VisitorCounter" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["VisitorCounter"] }]
+}
