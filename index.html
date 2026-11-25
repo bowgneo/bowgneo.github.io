@@ -8,8 +8,8 @@
   <title>grant</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://bowgneo.github.io/">
-  <link rel="stylesheet" href="style.css?v=sitewide-map">
-  <script src="assets/pageviews.js?v=sitewide-map" defer></script>
+  <link rel="stylesheet" href="style.css?v=map-zoom">
+  <script src="assets/pageviews.js?v=map-zoom" defer></script>
 </head>
 <body class="homepage">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -67,8 +67,16 @@
     <h2 id="visitor-title">访客地图</h2>
     <p class="pageview-total">全站累计浏览量 <output id="pageview-total" aria-live="polite">—</output></p>
     <div class="visitor-map">
-      <img src="assets/visitor-basemap.png" alt="世界地图" width="720" height="360">
+      <div class="map-viewport" role="group" aria-label="地图视图">
+        <img src="assets/visitor-basemap.png" alt="世界地图" width="720" height="360">
+      </div>
       <span class="visitor-tooltip" hidden></span>
+    </div>
+    <div class="map-controls" role="group" aria-label="地图缩放" hidden>
+      <button type="button" class="zoom-out" aria-label="缩小地图" title="缩小地图" disabled>−</button>
+      <output class="map-scale" aria-label="地图倍率">1×</output>
+      <button type="button" class="zoom-in" aria-label="放大地图" title="放大地图">+</button>
+      <button type="button" class="zoom-reset" disabled>复位</button>
     </div>
   </section>
 </main>
