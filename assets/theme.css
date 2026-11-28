@@ -1,30 +1,39 @@
 .theme-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  padding: .35rem .55rem;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 2.375rem;
+  height: 2.375rem;
+  margin-inline-start: auto;
+  padding: 0;
   border: 1px solid var(--line);
-  border-radius: .4rem;
-  background: transparent;
-  color: var(--ink);
-  font: inherit;
-  font-size: .8125rem;
-  line-height: 1.5;
-  white-space: nowrap;
-  cursor: pointer;
-  vertical-align: middle;
-}
-.theme-switch::before {
-  content: "";
-  width: .8rem;
-  height: .8rem;
-  box-sizing: border-box;
-  border: 1.5px solid currentColor;
   border-radius: 50%;
-  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  background: var(--surface, var(--paper));
+  color: var(--ink);
+  align-self: center;
+  cursor: pointer;
+  transition: background-color .15s, color .15s;
 }
-header nav:not(.main-nav) .theme-switch { margin-inline-start: .65rem; }
-.theme-switch:hover, .theme-switch:focus-visible { color: var(--accent, var(--blue)); }
+.theme-switch svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.theme-switch .sun, [data-theme="dark"] .theme-switch .moon { display: none; }
+[data-theme="dark"] .theme-switch .sun { display: inline; }
+.theme-switch:hover { background: var(--cover, #edf2f5); color: var(--accent, var(--blue)); }
+.theme-switch:focus-visible { outline: 2px solid var(--accent, var(--blue)); outline-offset: 3px; }
+.article h2 { overflow-wrap: anywhere; }
+@media (pointer: coarse) {
+  .theme-switch { width: 2.75rem; height: 2.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-switch { transition: none; }
+}
 
 @media screen {
   :root[data-theme="dark"] {

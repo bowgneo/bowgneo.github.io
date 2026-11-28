@@ -7,13 +7,13 @@
   <title>为什么要给 KV cache 分组 · vLLM KV cache 分组机制</title>
   <link rel="canonical" href="https://bowgneo.github.io/posts/vllm-kv-cache-grouping/01-grouping-basics.html">
   <link rel="stylesheet" href="assets/article.css?v=1f3442dd25">
-  <link rel="stylesheet" href="../../assets/theme.css">
-  <script src="../../assets/theme.js"></script>
+  <link rel="stylesheet" href="../../assets/theme.css?v=appearance-switch">
+  <script src="../../assets/theme.js?v=appearance-switch"></script>
   <script src="/assets/pageviews.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
-  <header><nav class="site-links" aria-label="站点导航"><a class="brand" href="https://bowgneo.github.io/">grant</a><a href="index.html">系列目录</a></nav><a href="01-grouping-basics.md" download>下载 Markdown</a></header>
+  <header><nav class="site-links" aria-label="站点导航"><a class="brand" href="https://bowgneo.github.io/">grant</a><a href="index.html">系列目录</a></nav></header>
   <main class="article" id="main"><article><h1>为什么要给 KV cache 分组</h1><aside class="chapter-nav"><details open><summary>本篇小节</summary><nav aria-label="本篇小节"><ol><li><a href="#section-1">PagedAttention</a></li><li><a href="#section-2">为什么一张 block table 不够</a></li><li><a href="#section-3">KVCacheSpec</a></li><li><a href="#section-4">Worker 收集 KVCacheSpec</a></li></ol></nav></details></aside><p class="version-note">vLLM releases/v0.33.0 · vLLM-Ascend releases/v0.33.0rc · Model Runner V2</p>
 <h2 id="section-1">PagedAttention</h2>
 <p>PagedAttention 按 block 给 KV cache 分配内存。图里每个 block 有 4 个位置，前四个 token 的 KV cache 填满了物理 block <code>1</code>。处理位置 <code>4</code> 时，vLLM 从 <code>BlockPool</code> 取到物理 block <code>5</code>，这个请求的 <code>block table</code> 从 <code>[1]</code> 变成 <code>[1, 5]</code>。</p>
