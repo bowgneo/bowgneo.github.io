@@ -8,8 +8,11 @@
   <title>grant</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://bowgneo.github.io/">
-  <link rel="stylesheet" href="style.css?v=map-zoom">
-  <script src="assets/pageviews.js?v=map-zoom" defer></script>
+  <link rel="stylesheet" href="style.css?v=article-search">
+  <link rel="stylesheet" href="assets/theme.css">
+  <script src="assets/theme.js"></script>
+  <script src="assets/search.js" defer></script>
+  <script src="assets/pageviews.js?v=search-theme" defer></script>
 </head>
 <body class="homepage">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -33,7 +36,14 @@
   <section class="series-section" aria-labelledby="series-title">
     <div class="column-heading">
       <h2 id="series-title">文章系列</h2>
-      <span class="series-topic">vLLM</span>
+      <label class="article-search" hidden>
+        <span aria-hidden="true" class="search-icon"></span>
+        <input id="article-query" type="search" aria-label="搜索文章" placeholder="搜索文章…" autocomplete="off" enterkeyhint="search">
+      </label>
+    </div>
+    <div id="search-results" hidden>
+      <p class="search-status" role="status"></p>
+      <ul class="result-list"></ul>
     </div>
     <div class="series-list">
       <article class="series-card">

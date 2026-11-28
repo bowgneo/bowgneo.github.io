@@ -1,0 +1,56 @@
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .35rem .55rem;
+  border: 1px solid var(--line);
+  border-radius: .4rem;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: .8125rem;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.theme-switch::before {
+  content: "";
+  width: .8rem;
+  height: .8rem;
+  box-sizing: border-box;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+}
+header nav:not(.main-nav) .theme-switch { margin-inline-start: .65rem; }
+.theme-switch:hover, .theme-switch:focus-visible { color: var(--accent, var(--blue)); }
+
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --canvas: #151b22;
+    --surface: #1d252e;
+    --ink: #e3eaf1;
+    --muted: #adbac8;
+    --line: #394653;
+    --accent: #91c3f1;
+    --cover: #27323e;
+    --paper: var(--canvas);
+    --blue: var(--accent);
+    --visit-rgb: 127 190 239;
+  }
+  [data-theme="dark"] .homepage { background: var(--canvas); }
+  [data-theme="dark"] .announcement { background: #1e3041; border-color: #3a5268; }
+  [data-theme="dark"] .series-chapters { border-color: var(--line); }
+  [data-theme="dark"] .map-viewport { background: #202d39; }
+  [data-theme="dark"] .visitor-map path { fill: var(--country-fill, #475d70); stroke: #202d39; }
+  [data-theme="dark"] .visitor-map circle { stroke: var(--surface); }
+  [data-theme="dark"] .visitor-map :is(path, circle):is(:hover, :focus-visible) { fill: #c6e6ff; }
+  [data-theme="dark"] .visitor-tooltip { background: #0f161e; }
+  [data-theme="dark"] .map-controls button:disabled { background: var(--cover); color: var(--muted); }
+  [data-theme="dark"] :is(.article, .landing) :is(code, pre, th) { background: var(--cover); }
+  [data-theme="dark"] :is(.intro, .cards p) { color: var(--muted); }
+  [data-theme="dark"] .skip { background: var(--surface); }
+}
+@media print { .theme-switch { display: none; } }

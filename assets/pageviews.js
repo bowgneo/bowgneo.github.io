@@ -62,7 +62,7 @@ async function loadVisitorMap(stats) {
       }
       if (count > 0) {
         region.setAttribute('tabindex', '0');
-        region.style.setProperty('--country-fill', `rgb(38 95 147 / ${0.35 + 0.65 * Math.sqrt(count / max)})`);
+        region.style.setProperty('--country-fill', `rgb(var(--visit-rgb, 38 95 147) / ${0.35 + 0.65 * Math.sqrt(count / max)})`);
       }
       map.append(region);
     }
